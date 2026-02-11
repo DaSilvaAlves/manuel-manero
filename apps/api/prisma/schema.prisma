@@ -1,0 +1,175 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User Model
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  role         String   @default("subscriber") // subscriber, member, admin
+  newsletter   Boolean  @default(false)
+  preferences  Json?    // theme, language, etc
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  leads        Lead[]
+  quizAnswers  QuizAnswer[]
+  community    CommunityMember?
+  events       Event[]
+
+  @@index([email])
+  @@index([role])
+}
+
+// Lead Captured
+model Lead {
+  id        String   @id @default(cuid())
+  email     String
+  name      String?
+  source    String   // quiz, newsletter, contact, lead-magnet
+  data      Json?    // Additional data from source
+  createdAt DateTime @default(now())
+
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+
+  @@index([email])
+  @@index([source])
+  @@index([createdAt])
+}
+
+// Content (Blog, Videos, Podcasts)
+model Content {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  content     String   // markdown or html
+  type        String   // blog, video, podcast
+  category    String   // marca-pessoal, comunicacao, mindset
+  tags        String[] @default([])
+  published   Boolean  @default(false)
+  image       String?
+  videoUrl    String?  // YouTube, Vimeo URL
+  duration    Int?     // for videos/podcasts in seconds
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // SEO
+  seoTitle    String?
+  seoDesc     String?
+  seoKeywords String?
+
+  @@index([slug])
+  @@index([category])
+  @@index([published])
+  @@index([createdAt])
+}
+
+// Programs/Offers
+model Program {
+  id             String   @id @default(cuid())
+  name           String   // PRIME, MASTERY, etc
+  slug           String   @unique
+  description    String
+  longDesc       String?
+  price          Float?
+  currency       String   @default("EUR")
+  duration       String   // 8 semanas, 12 semanas
+  modules        Int      // number of modules
+  modulesDetail  Json?    // detailed modules structure
+  image          String?
+  published      Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  testimonials   TestimonialVideo[]
+
+  @@index([slug])
+  @@index([published])
+}
+
+// Community Membership
+model CommunityMember {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  joinedAt  DateTime @default(now())
+  status    String   @default("active") // active, paused, cancelled
+  tier      String   @default("standard") // standard, premium
+  expiresAt DateTime? // membership expiry
+
+  @@index([userId])
+  @@index([status])
+}
+
+// Testimonial Videos
+model TestimonialVideo {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  videoUrl  String
+  quote     String?
+  result    String?  // e.g., "Increased revenue by 50%"
+  image     String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  // Relations
+  programs  Program[]
+
+  @@index([published])
+}
+
+// Quiz Answers
+model QuizAnswer {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  answers   Json     // { question1: answer1, question2: answer2 }
+  result    String   // recommended program or result
+  score     Int?     // quiz score
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+// Events (for analytics and tracking)
+model Event {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  type      String   // page_view, cta_click, form_submit, etc
+  data      Json?    // event-specific data
+  timestamp DateTime @default(now())
+
+  @@index([type])
+  @@index([userId])
+  @@index([timestamp])
+}
+
+// Webhook Logs (for debugging integrations)
+model WebhookLog {
+  id        String   @id @default(cuid())
+  source    String   // hotmart, activecampaign, etc
+  status    Int      // HTTP status code
+  payload   Json
+  response  Json?
+  error     String?
+  timestamp DateTime @default(now())
+
+  @@index([source])
+  @@index([timestamp])
+}
