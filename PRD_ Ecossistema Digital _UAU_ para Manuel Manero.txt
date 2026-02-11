@@ -1,0 +1,223 @@
+﻿PRD: Ecossistema Digital "UAU" para Manuel Manero
+Versão: 2.0
+Data: 11 de fevereiro de 2026
+Autor: [Seu Nome ou Equipe]
+Objetivo do PRD: Definir os requisitos para o desenvolvimento de um site/ecossistema moderno que posicione Manuel Manero como autoridade em Marca Pessoal Milionária em língua portuguesa, impulsionando conversões e escala.
+1. Visão Geral do Produto
+O site "UAU" será o hub central da marca pessoal de Manuel Manero, integrando autoridade, programas, comunidade e conteúdos em um ecossistema orientado a conversão, com foco em IA para personalização e autenticidade. Alinhado a tendências 2025/26, como AI-driven personalization e purpose-driven movements, o site enfatizará experiências autênticas e escaláveis para empreendedores.
+Objetivo Principal:
+Posicionar Manuel como referência absoluta em Marca Pessoal Milionária, elevando a percepção de valor para tickets premium e escala global.
+Objetivos de Negócio:
+
+
+Aumentar leads qualificadas em 30% para Comunidade Milionária, Personal Branding MASTERY e Método PRIME (mentorias, programas, eventos).
+Crescer a base de e-mail em 20% mensais via lead magnets (quizzes IA-personalizados, aulas gratuitas).
+Reforçar autoridade com prova social dinâmica (IA para curadoria de depoimentos) e integração multi-canal (redes sociais, podcasts).
+
+
+Público-Alvo:
+Empreendedores, consultores, coaches, profissionais liberais e líderes (25-50 anos, foco em Portugal e Brasil) que buscam:
+
+
+Marca pessoal forte para impacto e liberdade (financeira, temporal, geográfica).
+Conteúdos autênticos sobre abundância, mindset e escala.
+
+
+Escopo e Fora de Escopo:
+
+
+Em Escopo: Site responsivo, integração com ferramentas de e-mail/CRM, IA básica para chat e quizzes, conteúdos dinâmicos.
+Fora de Escopo: Desenvolvimento de app mobile nativo, criação de novos cursos (apenas integração), pagamentos internos (usar Hotmart).
+
+
+2. Posicionamento de Marca e Mensagem
+Proposta de Valor Central:
+"Ajudo empreendedores a construir Presença forte, comunicar com Impacto e alcançar Resultados escaláveis via Método PRIME, Comunidade Milionária e programas premium – para uma vida de abundância e legado."
+Tom e Linguagem:
+Confiante, direto, inspirador, com ênfase em abundância, prosperidade e autenticidade. Mistura linguagem simples com conceitos poderosos (ex.: "marca pessoal milionária", "liberdade escalável").
+Mensagens-Chave:
+
+
+15+ anos em comunicação e marketing digital.
+Criador do Personal Branding MASTERY (maior programa de aceleração) e Comunidade Milionária (maior rede de empreendedores).
+Transformo conhecimento em resultados concretos, com foco em purpose-driven growth.
+
+
+3. Estrutura do Site e Páginas
+O site usará layout long-form narrativo (tendência 2025/26), com IA para personalização (ex.: recomendações baseadas em comportamento do usuário).
+3.1. Home (Página "UAU")
+Objetivo: Impacto imediato, clareza e conversão rápida (taxa de bounce < 30%).
+
+
+Hero de Alto Impacto:
+Fundo: Vídeo loop (sem som) de Manuel em ação (palco, mentoria).
+Headline: "Construa uma Marca Pessoal Milionária e Viva em Abundância."
+Sub-headline: "Comunicação estratégica, método comprovado e ecossistema para escalar presença, influência e resultados."
+CTAs: "Comece Agora" (quiz IA de assessment de marca); "Explore Programas".
+
+
+Quem é Manuel? (Teaser Autêntico):
+Foto editorial + bio curta: 15+ anos, criador de MASTERY e Comunidade, professor no Turismo de Portugal.
+Link: "Minha História Completa" → Página Sobre.
+
+
+Transformação Entregue:
+4 blocos com ícones/IA-animados: Presença, Comunicação, Escala, Abundância.
+
+
+Ecossistema Overview:
+Cards interativos: Método PRIME, MASTERY, Comunidade, Escola (com previews personalizados via IA).
+
+
+Prova Social Dinâmica:
+Carrossel de depoimentos (texto + vídeo + IA-curated).
+Métricas: 10k+ empreendedores impactados, 5k+ na Comunidade.
+
+
+Conteúdos Destaque:
+3 itens recentes (blog/vídeo/podcast), com IA para recomendações personalizadas.
+
+
+CTA Final: "Junte-se ao Ecossistema e Construa Sua Marca Milionária Hoje."
+
+
+3.2. Página Sobre
+Objetivo: Storytelling autêntico + conexão emocional.
+
+
+Linha do tempo interativa (IA para navegação).
+Formação: Ciências da Comunicação, psicomarketing, growth.
+Papel pessoal: Pai, autor, mentor – com foco em purpose (abundância, legado).
+Micro-depoimentos integrados.
+CTA: "Agende uma Conversa Gratuita".
+
+
+3.3. Página Programas
+Objetivo: Diferenciação por níveis (iniciante, avançado).
+
+
+Subseções: PRIME, MASTERY, Mentorias 1:1/Mastermind.
+Estrutura por programa: Problema → Promessa → Método → Prova (depoimentos IA-selecionados) → CTA ("Inscreva-se" ou "Detalhes").
+Integração AI: Sugestões personalizadas ("Este programa é ideal para você se...").
+
+
+3.4. Página Comunidade Milionária
+Objetivo: Vender belonging e escala.
+
+
+Manifesto: Ênfase em purpose-driven community.
+Benefícios: Lives, networking, recursos IA-personalizados, desafios.
+Para Quem É/Não É.
+Preço/Plano: CTA para checkout externo.
+Depoimentos vídeo.
+CTA repetido: "Entre na Comunidade".
+
+
+3.5. Escola/Manuais
+Objetivo: Monetização de produtos digitais.
+
+
+Lista filtrável por tema (IA para buscas semânticas).
+Links para Hotmart.
+CTA: "Acesse Gratuitamente o Primeiro Módulo".
+
+
+3.6. Conteúdos (Blog/Vídeos/Podcast)
+Objetivo: Nutrição, SEO e autoridade.
+
+
+Categorias: Marca Pessoal, Comunicação, Mindset Milionário.
+Páginas individuais: Conteúdo + CTA para upsell.
+IA: Sugestões relacionadas.
+
+
+3.7. Página Contato/Agendar
+
+
+Formulário para parcerias/media.
+Integração Calendly com IA para triagem.
+
+
+4. Requisitos Funcionais
+4.1. Principais
+
+
+CMS: Webflow/WordPress para conteúdos dinâmicos.
+Leads: Integração ActiveCampaign; quizzes IA (ex.: Typeform com AI).
+Área de Membros: Link para plataforma externa, com futuro upgrade para própria (IA para engajamento).
+Integrações: Hotmart, redes sociais, busca interna IA.
+
+
+4.2. Avançadas "UAU"
+
+
+Micro-animações: Hover, transições (parallax leve).
+Vídeo-First: Heros e depoimentos.
+Dark/Light Mode: Automático via preferência do usuário.
+Chat AI: Assistente para guiar (ex.: "Recomendo o PRIME para iniciantes").
+Personalização: AI para conteúdos adaptados (tendência 2026).
+
+
+5. Requisitos de Design
+5.1. Estilo Visual
+
+
+Inspiração: Amy Porterfield, Ramit Sethi – minimalismo premium, quiet luxury.
+Tendências 2025/26: Long-form storytelling, AI-interações, sustentabilidade (otimização para low-energy).
+
+
+5.2. Cores e Tipografia
+
+
+Paleta: Deep blue/dourado sutil para abundância.
+Tipografia: Bold para títulos, clean para corpo (mobile-legível).
+
+
+5.3. UI Componentes
+
+
+Cards: Ícones, benefícios, CTAs.
+Prova Social: Logos clientes, depoimentos com resultados quantificados.
+
+
+6. User Stories Principais
+
+
+Visitante Frio: Entender em 5s o valor; acessar conteúdos gratuitos.
+Lead Aquecida: Detalhes programas + depoimentos; agendar/buy.
+Membro: Acesso rápido a novidades e comunidade.
+
+
+7. Requisitos Técnicos
+
+
+Mobile-First, Responsivo.
+Performance: Lighthouse >90; lazy load.
+SEO: Headings, metas, blog otimizado (IA para keywords).
+Analytics: GA4 com eventos CTAs.
+Segurança: GDPR-compliant, SSL.
+
+
+8. Métricas de Sucesso
+
+
+Conversão visitantes-leads: >15%.
+Inscrições Comunidade/Programas: +25% trimestral.
+Tempo na Página: >2min Home/Sobre.
+Tráfego Orgânico: +20% mensal via SEO/AI-content.
+
+
+9. Riscos e Dependências
+
+
+Riscos: Atrasos em conteúdo (mitigação: timeline rígido); integração IA falha (teste beta).
+Dependências: Sessão fotográfica/vídeos; aprovação branding; ferramentas externas (Hotmart, ActiveCampaign).
+
+
+10. Cronograma Estimado e Entregáveis
+
+
+Fase 1 (2 semanas): Wireframes e UI Kit (cores, tipografia, componentes).
+Fase 2 (4 semanas): Desenvolvimento e testes IA.
+Fase 3 (2 semanas): Conteúdo + Lançamento.
+Entregáveis: Wireframes todas páginas; Guia de Copy; Biblioteca imagens/vídeos.

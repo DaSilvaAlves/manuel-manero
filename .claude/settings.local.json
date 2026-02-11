@@ -1,0 +1,9 @@
+{
+  "enabledMcpjsonServers": [
+    "exa",
+    "browser",
+    "context7",
+    "desktop-commander"
+  ],
+  "enableAllProjectMcpServers": true
+}

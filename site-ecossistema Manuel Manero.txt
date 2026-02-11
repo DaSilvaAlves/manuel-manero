@@ -1,0 +1,230 @@
+﻿Abaixo está um PRD completo, pensado para um site/ecossistema “UAU” do Manuel Manero, alinhado com tendências modernas de personal branding e coaching digital em 2025/26.
+________________
+
+
+1. Visão geral do produto
+O novo site do Manuel Manero será o hub central da marca pessoal, integrando: autoridade, programas, comunidade e conteúdos num único ecossistema extremamente moderno e orientado a conversão.
+Objetivo principal
+* Posicionar o Manuel como referência absoluta em Marca Pessoal Milionária em língua portuguesa, elevando a perceção de valor e abrindo caminho para tickets mais altos e escala.
+Objetivos de negócio
+* Aumentar leads qualificadas para:
+   * Comunidade Milionária.
+   * Personal Branding MASTERY.
+   * Método PRIME (mentorias, programas, eventos).​
+* Crescer a base de e-mail (lead magnets, quizzes, aulas gratuitas).
+* Reforçar a autoridade (prova social, história, resultados, media).
+Público-alvo
+* Empreendedores, consultores, coaches, profissionais liberais, líderes que querem:
+   * Construir uma marca pessoal forte.
+   * Comunicar com impacto.
+   * Viver com mais liberdade financeira, temporal e geográfica.
+________________
+
+
+2. Posicionamento de marca e mensagem
+Proposta de valor central
+* “Ajudo empreendedores a construir uma Presença forte no mercado, comunicar com Impacto e ter Resultados em escala através do Método PRIME, da Comunidade Milionária e dos meus programas de marca pessoal.”
+Tom e linguagem
+* Confiante, direto, inspirador, com vocabulário de abundância, prosperidade, legado e grandes resultados.​
+* Mistura de linguagem simples com conceitos fortes (marca pessoal milionária, liberdade, escala, presença).
+Mensagens-chave (a destacar no site)
+* Mais de 15 anos em comunicação e estratégia de marketing digital.
+* Criador do maior programa de aceleração em comunicação estratégica e marketing digital – Personal Branding MASTERY – e da maior comunidade de empreendedores focados em marcas pessoais – Comunidade Milionária.
+* Especialista em transformar conhecimento, reputação e presença online em resultados concretos e escaláveis.
+________________
+
+
+3. Estrutura do site (IA) e páginas
+3.1. Home (página “UAU”)
+Objetivo: impacto imediato + clareza de proposta + caminho rápido para ação.
+Secções obrigatórias:
+1. Hero de alto impacto (dobro 1)
+* Fundo: vídeo curto em loop (sem som) com Manuel em palco, mentoria, bastidores de gravação.
+* Headline forte (exemplo):
+   * “Constrói uma Marca Pessoal Milionária e vive em Abundância.”​
+* Sub-headline:
+   * “Comunicação estratégica, método comprovado e ecossistema certo para escalares a tua presença, a tua influência e os teus resultados.”
+* CTAs principais:
+   * “Quero começar agora” (para lead magnet / quiz / aula gratuita).
+   * “Ver programas” (ancora para secção de ofertas).
+2. Secção “Quem é o Manuel?” (teaser)
+* Foto forte, estilo editorial, com pequeno texto sobre:
+   * 15+ anos em comunicação e marketing digital.
+   * Criador do Personal Branding MASTERY e Comunidade Milionária.
+   * Professor no Turismo de Portugal.​
+* Link “Ver história completa” para página Sobre.
+3. A transformação que ele entrega
+* 3 a 4 blocos com ícones:
+   * Presença forte no mercado.
+   * Comunicação com impacto.
+   * Resultados em escala.
+   * Vida abundante (liberdade financeira, temporal e geográfica).
+4. Ecossistema Manero (visão geral)
+* Cards com:
+   * Método PRIME.
+   * Personal Branding MASTERY.
+   * Comunidade Milionária.
+   * Escola / Manuais (produtos digitais).
+5. Prova social
+* Depoimentos em carrossel (texto + foto + função do cliente).
+* Números-chave (exemplo):
+   * X empreendedores impactados.
+   * X alunos na Comunidade Milionária.
+   * X anos de experiência.
+6. Conteúdos em destaque
+* Últimos 3 artigos / vídeos / podcasts sobre marca pessoal, comunicação, abundância.
+7. CTA final
+* Reforço de convite: “Entra no ecossistema e começa a construir a tua Marca Pessoal Milionária hoje.”
+3.2. Página Sobre
+Objetivo: storytelling profundo + autoridade + conexão emocional.
+Conteúdos:
+* Linha do tempo: da comunicação à Comunidade Milionária (pontos-chave com datas).
+* Formação: Ciências da Comunicação, especializações em psicomarketing, business growth, etc.​
+* Papel como pai, autor, escritor, mentor, professor.
+* Secção “Porque faço o que faço”: visão de abundância, legado e libertação de potenciais.​
+* Micro-depoimentos encaixados dentro da narrativa.
+3.3. Página Programas
+Objetivo: clarificar ofertas, diferenciação e caminhos (início, intermédio, avançado).
+Subsecções:
+* Método PRIME (overview, para quem é, o que resolve, formato, próximos passos).​
+* Personal Branding MASTERY (programa de aceleração, módulos, durações, bónus, testemunhos).
+* Mentorias 1:1 / Mastermind (se existir): foco em quem quer proximidade e personalização.
+Cada programa com:
+* Estrutura em blocos (Problema → Promessa → Método → Prova → CTA).
+* CTAs:
+   * “Quero mais detalhes.”
+   * “Agendar conversa.”
+3.4. Página Comunidade Milionária
+Objetivo: vender o ecossistema de comunidade.
+Conteúdos:
+* Manifesto da comunidade (trechos chaves do texto original).
+* Benefícios práticos:
+   * Lives, formações, networking, recursos, desafios, apoio contínuo.​
+* Para quem é / para quem não é.
+* Preço / plano (ou call to action para página externa de checkout).​
+* Depoimentos específicos de membros.​
+* CTA repetida várias vezes (“Quero entrar na Comunidade Milionária”).
+3.5. Escola / Manuais
+Objetivo: organizar produtos digitais, cursos, manuais.
+Conteúdos:
+* Lista de produtos (manuais, formações curtas, workshops gravados).
+* Filtros por tema (comunicação, marketing digital, abundância, liberdade).​
+* Ligações para plataformas externas (Hotmart, etc.) quando necessário.​
+3.6. Conteúdos (Blog / Vídeos / Podcast)
+Objetivo: nutrir audiência, SEO, autoridade.
+Funcionalidades:
+* Listagem por categorias (marca pessoal, comunicação, mindset milionário, casos de estudo).​
+* Página individual com:
+   * Título forte.
+   * Conteúdo.
+   * CTA no final para programas / comunidade.
+3.7. Página Contacto / Agendar
+* Formulário para parcerias, media, convites para palestras.
+* Integração com ferramenta de agendamento (Calendly, TidyCal, etc.) para reuniões de triagem de mentoria.​
+________________
+
+
+4. Requisitos funcionais
+4.1. Funcionais principais
+* Gestão de conteúdos:
+   * CMS para páginas, blog, conteúdos dinâmicos (WordPress, Webflow CMS, ou similar).
+* Captação de leads:
+   * Formulários integrados com e-mail marketing (ActiveCampaign, MailerLite, ou outro).
+   * Lead magnet (e-book, vídeo, checklist) em pop-up e secções da home.
+   * Opção de quiz/assessment de marca pessoal (perguntas simples → resultado + captura de e-mail).​
+* Comunidade / área de membros:
+   * Pelo menos ligação clara para plataforma atual (Comunidade Milionária) com possibilidade futura de área de membros própria.
+* Integração com plataformas externas:
+   * Hotmart / outra plataforma de cursos e pagamentos.​
+   * Redes sociais (Instagram, YouTube, LinkedIn, etc.).
+* Busca interna:
+   * Campo de pesquisa para conteúdos e programas.
+4.2. Funcionalidades avançadas “UAU”
+* Micro animações:
+   * Efeitos de hover em cards, botões com animação suave, transições entre secções.
+* Vídeo-first:
+   * Hero com vídeo.
+   * Vários trechos de vídeos curtos usados como “testemunhos em vídeo”, “mensagem do Manuel”.
+* Dark/Light mode:
+   * Opção de alternar entre modo claro/escuro para reforçar modernidade.​
+* Chat/assistente:
+   * Chat simplificado (tipo bubble) para guiar o utilizador: “Por onde queres começar?” (programas, comunidade, conteúdos).​
+* Marca pessoal forte:
+   * Tipografia, cores, ícones e fotos desenhados especificamente para transmitir abundância, modernidade e autoridade.
+________________
+
+
+5. Requisitos de design (para criar o “UAU UAU”)
+5.1. Estilo visual
+* Inspiração:
+   * Personal brands premium (Amy Porterfield, Marie Forleo, Ramit Sethi, etc.), com interfaces limpas, modernas, hero forte e narrativa em scroll longo.
+* Tendências 2025:
+   * Layouts long-form com narrativa (da primeira dobra à conversão).​
+   * Micro-interações discretas (scroll suave, parallax leve, hover states).
+   * Uso de gradientes subtis e “quiet luxury” (minimais, mas premium).​
+5.2. Cores e tipografia
+* Paleta:
+   * Base clara ou escura com cor principal associada à “marca pessoal milionária” (ex.: dourado moderno, roxo abundância, ou deep blue elegante – decisão de branding).
+* Tipografia:
+   * Título: fonte bold, com personalidade (estilo editorial).
+   * Corpo: fonte clean e legível, boa leitura em mobile.
+5.3. Componentes-chave de UI
+* Cards de programas com:
+   * Ícone/ilustração.
+   * Título.
+   * Subtexto de benefício.
+   * CTA claro.​
+* Secções “degrau de autoridade”:
+   * Linha de logos de clientes/empresas onde Manuel já atuou (quando disponível).​
+* Blocos de prova social:
+   * Depoimentos com foto, nome, negócio e resultado obtido.
+________________
+
+
+6. User stories principais
+Como visitante frio (não conhece o Manuel)
+* Quero perceber em 5 segundos quem é o Manuel e o que ele faz, para saber se este site é para mim.
+* Quero ver rapidamente o que posso ganhar ao trabalhar a minha marca pessoal.
+* Quero encontrar facilmente conteúdos gratuitos para o conhecer melhor.
+Como lead aquecida
+* Quero ver detalhes sobre os programas, para saber qual faz sentido para o meu nível.
+* Quero ler testemunhos de pessoas como eu, para ganhar confiança.
+* Quero poder marcar uma conversa ou comprar diretamente.
+Como seguidor / membro da comunidade
+* Quero encontrar com facilidade a página da Comunidade Milionária.
+* Quero acessar a Escola / Manuais sem me perder.
+* Quero ver novos conteúdos e novidades rapidamente na home.
+________________
+
+
+7. Requisitos técnicos
+* Mobile-first, totalmente responsivo.
+* Performance:
+   * Tempo de carregamento otimizado (imagens comprimidas, lazy load, boa pontuação no Lighthouse).
+* SEO:
+   * Estrutura com headings corretos, meta descrições, URLs amigáveis.
+   * Blog com tags e categorias para temas estratégicos (marca pessoal, comunicação, marketing digital, abundância).
+* Analytics:
+   * Integração com Google Analytics / GA4.
+   * Eventos para cliques em CTAs principais (lead magnet, ver programas, entrar na comunidade).​
+________________
+
+
+8. Métricas de sucesso
+* Aumento da taxa de conversão de visitantes para leads (newsletter/lead magnet/quiz).
+* Aumento de inscrições na Comunidade Milionária e programas principais.
+* Tempo médio na página Home e Sobre superior a X segundos (a definir).
+* Crescimento mensal de tráfego orgânico (SEO).
+________________
+
+
+9. Entregáveis de design e conteúdo
+* Wireframes de:
+   * Home, Sobre, Programas, Comunidade Milionária, Escola/Manuais, Blog, Artigo, Contacto.
+* UI Kit:
+   * Paleta de cores, tipografia, botões, cards, componentes de formulário.
+* Guia de conteúdo:
+   * Estrutura de copy por secção (headline, subtitulo, bullets principais, CTAs).
+* Biblioteca de imagens/vídeos:
+   * Sessão fotográfica do Manuel.
+   * Vídeos curtos para hero e secções-chave.

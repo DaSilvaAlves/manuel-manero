@@ -1,0 +1,27 @@
+{
+  "name": "manuel-manero-ecosystem",
+  "version": "1.0.0",
+  "description": "Ecossistema Digital 'UAU' para Manuel Manero - Marca Pessoal Milionária",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm test --workspaces",
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules"
+  },
+  "keywords": [
+    "marca-pessoal",
+    "coaching",
+    "empreendedorismo",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Manuel Manero",
+  "license": "proprietary"
+}
