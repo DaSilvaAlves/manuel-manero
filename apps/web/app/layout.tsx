@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/lib/theme-provider'
+import { RootLayoutClient } from './layout-client'
 
 export const metadata: Metadata = {
   title: 'Manuel Manero | Marca Pessoal Milionária',
@@ -34,13 +36,25 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark')
+                } else {
+                  document.documentElement.classList.remove('dark')
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
       </head>
-      <body>
-        <div className="flex min-h-screen flex-col">
-          {/* Header will be added here */}
-          <main className="flex-1">{children}</main>
-          {/* Footer will be added here */}
-        </div>
+      <body suppressHydrationWarning>
+        <ThemeProvider>
+          <RootLayoutClient>{children}</RootLayoutClient>
+        </ThemeProvider>
       </body>
     </html>
   )
