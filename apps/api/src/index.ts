@@ -5,6 +5,7 @@ import { PrismaClient } from '@prisma/client'
 import articlesRouter from './routes/articles'
 import testimonialsRouter from './routes/testimonials'
 import programsRouter from './routes/programs'
+import leadsRouter from './routes/leads'
 
 // Load environment variables
 dotenv.config()
@@ -105,6 +106,7 @@ app.get('/api/v1', (req: Request, res: Response) => {
           'GET /api/testimonials/:id': 'Get single testimonial by ID',
           'GET /api/programs': 'List programs with optional testimonials',
           'GET /api/programs/:slug': 'Get single program by slug',
+          'POST /api/leads': 'Capture new lead with validation & CRM sync',
           'GET /api/leads': 'List captured leads (legacy)',
           'GET /api/content': 'List all content (legacy)',
         },
@@ -133,6 +135,7 @@ app.get('/api/v1', (req: Request, res: Response) => {
 app.use('/api/articles', articlesRouter)
 app.use('/api/testimonials', testimonialsRouter)
 app.use('/api/programs', programsRouter)
+app.use('/api/leads', leadsRouter)
 
 // Legacy Routes (for backwards compatibility)
 

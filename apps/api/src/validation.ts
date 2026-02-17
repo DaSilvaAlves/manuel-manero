@@ -64,11 +64,23 @@ export const programsQuerySchema = z
     includeTestimonials: data.includeTestimonials ?? true,
   }))
 
+// Lead creation schema for POST /api/leads
+export const createLeadSchema = z.object({
+  email: z.string().email({ message: 'Valid email required' }),
+  name: z.string().min(1).max(100).optional(),
+  program: z.string().optional(),
+  source: z.enum(['quiz', 'newsletter', 'contact', 'lead-magnet']).default('contact'),
+  gdprConsent: z.literal(true, {
+    errorMap: () => ({ message: 'GDPR consent is required' }),
+  }),
+})
+
 // Type exports for use in route handlers
 export type PaginationQuery = z.infer<typeof paginationSchema>
 export type ArticlesQuery = z.infer<typeof articlesQuerySchema>
 export type TestimonialsQuery = z.infer<typeof testimonialsQuerySchema>
 export type ProgramsQuery = z.infer<typeof programsQuerySchema>
+export type CreateLeadInput = z.infer<typeof createLeadSchema>
 
 /**
  * Helper function to validate query parameters with consistent error handling

@@ -1,36 +1,11 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
+const config: NextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '*.cloudinary.com',
-      },
-      {
-        protocol: 'https',
-        hostname: '*.unsplash.com',
-      },
-    ],
-  },
-  headers: async () => {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains',
-          },
-        ],
-      },
-    ]
+  typedRoutes: true,
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
   },
 }
 
-export default nextConfig
+export default config
