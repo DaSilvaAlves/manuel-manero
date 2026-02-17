@@ -2,6 +2,9 @@ import express, { Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { PrismaClient } from '@prisma/client'
+import articlesRouter from './routes/articles'
+import testimonialsRouter from './routes/testimonials'
+import programsRouter from './routes/programs'
 
 // Load environment variables
 dotenv.config()
@@ -82,7 +85,7 @@ app.get('/health', async (req: Request, res: Response) => {
   }
 })
 
-// API version endpoint
+// API version endpoint - Updated with all available routes
 app.get('/api/v1', (req: Request, res: Response) => {
   const response: ApiResponse = {
     status: 'success',
@@ -90,11 +93,34 @@ app.get('/api/v1', (req: Request, res: Response) => {
       message: 'Manuel Manero Ecosystem API v1',
       version: '1.0.0',
       environment: NODE_ENV,
+      description: 'RESTful API for Manuel Manero personal branding ecosystem',
       endpoints: {
-        health: '/health',
-        leads: '/api/v1/leads',
-        programs: '/api/v1/programs',
-        content: '/api/v1/content',
+        health: {
+          GET: '/health - Server health check with database verification',
+        },
+        content: {
+          'GET /api/articles': 'List articles with pagination & filtering',
+          'GET /api/articles/:slug': 'Get single article by slug',
+          'GET /api/testimonials': 'List testimonials with pagination',
+          'GET /api/testimonials/:id': 'Get single testimonial by ID',
+          'GET /api/programs': 'List programs with optional testimonials',
+          'GET /api/programs/:slug': 'Get single program by slug',
+          'GET /api/leads': 'List captured leads (legacy)',
+          'GET /api/content': 'List all content (legacy)',
+        },
+        documentation: {
+          'Query Params': {
+            limit: 'Number of results per page (1-100, default: 10)',
+            offset: 'Number of results to skip (default: 0)',
+            category: 'Filter by category (articles only)',
+            type: 'Filter by type: blog|video|podcast (articles only)',
+            published: 'Show only published items (default: true)',
+          },
+          responses: {
+            success: '{ status: "success", data: {...}, timestamp: "ISO-8601" }',
+            error: '{ status: "error", error: "message", timestamp: "ISO-8601" }',
+          },
+        },
       },
     },
     timestamp: new Date().toISOString(),
@@ -102,7 +128,13 @@ app.get('/api/v1', (req: Request, res: Response) => {
   res.json(response)
 })
 
-// Routes
+// Routes Registration
+// Mount route handlers
+app.use('/api/articles', articlesRouter)
+app.use('/api/testimonials', testimonialsRouter)
+app.use('/api/programs', programsRouter)
+
+// Legacy Routes (for backwards compatibility)
 
 // GET /api/v1/leads - Fetch recent leads
 app.get('/api/v1/leads', async (req: Request, res: Response) => {
