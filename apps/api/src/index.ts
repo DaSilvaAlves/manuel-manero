@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { PrismaClient } from '@prisma/client'
@@ -12,75 +12,242 @@ const prisma = new PrismaClient()
 // Initialize Express app
 const app = express()
 const PORT = process.env.API_PORT || 3001
+const NODE_ENV = process.env.NODE_ENV || 'development'
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000'
+
+// Types
+interface ApiResponse<T = any> {
+  status: 'success' | 'error'
+  data?: T
+  error?: string
+  message?: string
+  timestamp: string
+}
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: FRONTEND_URL,
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }))
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 
-// Request logging middleware
-app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`)
+app.use(express.json({ limit: '10mb' }))
+app.use(express.urlencoded({ extended: true, limit: '10mb' }))
+
+// Request ID middleware (for tracing)
+app.use((req: Request, res: Response, next: NextFunction) => {
+  ;(req as any).id = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
   next()
 })
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({
-    status: 'ok',
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV,
+// Request logging middleware
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const start = Date.now()
+  res.on('finish', () => {
+    const duration = Date.now() - start
+    console.log(
+      `[${new Date().toISOString()}] ${req.method} ${req.path} - ${res.statusCode} (${duration}ms)`
+    )
   })
+  next()
+})
+
+// Health check endpoint with database verification
+app.get('/health', async (req: Request, res: Response) => {
+  try {
+    // Test database connection
+    await prisma.$queryRaw`SELECT 1`
+
+    const response: ApiResponse = {
+      status: 'success',
+      data: {
+        service: 'Manuel Manero API',
+        version: '1.0.0',
+        environment: NODE_ENV,
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString(),
+      },
+      timestamp: new Date().toISOString(),
+    }
+    res.json(response)
+  } catch (error) {
+    console.error('❌ Health check failed:', error)
+    const response: ApiResponse = {
+      status: 'error',
+      error: 'Database connection failed',
+      timestamp: new Date().toISOString(),
+    }
+    res.status(503).json(response)
+  }
 })
 
 // API version endpoint
-app.get('/api/v1', (req, res) => {
-  res.json({
-    message: 'Manuel Manero Ecosystem API v1',
-    version: '1.0.0',
-  })
+app.get('/api/v1', (req: Request, res: Response) => {
+  const response: ApiResponse = {
+    status: 'success',
+    data: {
+      message: 'Manuel Manero Ecosystem API v1',
+      version: '1.0.0',
+      environment: NODE_ENV,
+      endpoints: {
+        health: '/health',
+        leads: '/api/v1/leads',
+        programs: '/api/v1/programs',
+        content: '/api/v1/content',
+      },
+    },
+    timestamp: new Date().toISOString(),
+  }
+  res.json(response)
 })
 
-// Routes placeholder
-app.get('/api/v1/leads', async (req, res) => {
+// Routes
+
+// GET /api/v1/leads - Fetch recent leads
+app.get('/api/v1/leads', async (req: Request, res: Response) => {
   try {
+    const limit = Math.min(parseInt(req.query.limit as string) || 10, 100)
+    const offset = Math.max(parseInt(req.query.offset as string) || 0, 0)
+
     const leads = await prisma.lead.findMany({
-      take: 10,
+      take: limit,
+      skip: offset,
       orderBy: { createdAt: 'desc' },
     })
-    res.json({
+
+    const total = await prisma.lead.count()
+
+    const response: ApiResponse = {
       status: 'success',
-      data: leads,
-      count: leads.length,
-    })
+      data: {
+        leads,
+        pagination: {
+          total,
+          limit,
+          offset,
+          hasMore: offset + limit < total,
+        },
+      },
+      timestamp: new Date().toISOString(),
+    }
+    res.json(response)
   } catch (error) {
-    console.error('Error fetching leads:', error)
+    console.error('❌ Error fetching leads:', error)
     res.status(500).json({
       status: 'error',
-      message: 'Failed to fetch leads'
+      error: 'Failed to fetch leads',
+      timestamp: new Date().toISOString(),
+    })
+  }
+})
+
+// GET /api/v1/programs - Fetch published programs
+app.get('/api/v1/programs', async (req: Request, res: Response) => {
+  try {
+    const programs = await prisma.program.findMany({
+      where: { published: true },
+      include: {
+        testimonials: {
+          where: { published: true },
+          take: 3,
+        },
+      },
+      orderBy: { createdAt: 'asc' },
+    })
+
+    const response: ApiResponse = {
+      status: 'success',
+      data: {
+        programs,
+        count: programs.length,
+      },
+      timestamp: new Date().toISOString(),
+    }
+    res.json(response)
+  } catch (error) {
+    console.error('❌ Error fetching programs:', error)
+    res.status(500).json({
+      status: 'error',
+      error: 'Failed to fetch programs',
+      timestamp: new Date().toISOString(),
+    })
+  }
+})
+
+// GET /api/v1/content - Fetch published content
+app.get('/api/v1/content', async (req: Request, res: Response) => {
+  try {
+    const type = req.query.type as string || undefined
+    const category = req.query.category as string || undefined
+    const limit = Math.min(parseInt(req.query.limit as string) || 10, 50)
+
+    const content = await prisma.content.findMany({
+      where: {
+        published: true,
+        ...(type && { type }),
+        ...(category && { category }),
+      },
+      take: limit,
+      orderBy: { createdAt: 'desc' },
+    })
+
+    const response: ApiResponse = {
+      status: 'success',
+      data: {
+        content,
+        count: content.length,
+        filters: {
+          type: type || 'all',
+          category: category || 'all',
+        },
+      },
+      timestamp: new Date().toISOString(),
+    }
+    res.json(response)
+  } catch (error) {
+    console.error('❌ Error fetching content:', error)
+    res.status(500).json({
+      status: 'error',
+      error: 'Failed to fetch content',
+      timestamp: new Date().toISOString(),
     })
   }
 })
 
 // 404 handler
-app.use((req, res) => {
-  res.status(404).json({
+app.use((req: Request, res: Response) => {
+  const response: ApiResponse = {
     status: 'error',
-    message: 'Route not found',
-    path: req.path,
-  })
+    error: 'Route not found',
+    data: {
+      path: req.path,
+      method: req.method,
+      availableEndpoints: {
+        health: '/health',
+        api: '/api/v1',
+        leads: '/api/v1/leads',
+        programs: '/api/v1/programs',
+        content: '/api/v1/content',
+      },
+    },
+    timestamp: new Date().toISOString(),
+  }
+  res.status(404).json(response)
 })
 
-// Error handler
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error('Error:', err)
-  res.status(500).json({
+// Global error handler
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error('❌ Unhandled error:', err)
+
+  const response: ApiResponse = {
     status: 'error',
-    message: err.message || 'Internal server error',
-  })
+    error: NODE_ENV === 'development' ? err.message : 'Internal server error',
+    data: NODE_ENV === 'development' ? { stack: err.stack } : undefined,
+    timestamp: new Date().toISOString(),
+  }
+
+  res.status(500).json(response)
 })
 
 // Start server
@@ -88,15 +255,34 @@ async function startServer() {
   try {
     // Test database connection
     await prisma.$connect()
-    console.log('✅ Database connected')
+    console.log('✅ Database connected successfully')
 
     // Start Express server
-    app.listen(PORT, () => {
+    const server = app.listen(PORT, () => {
       console.log(`
-🚀 API Server running at http://localhost:${PORT}
-📝 API Documentation available at http://localhost:${PORT}/api/v1
-🏥 Health check: http://localhost:${PORT}/health
+╔════════════════════════════════════════════════════════════╗
+║   🚀 Manuel Manero API Server Started                      ║
+╠════════════════════════════════════════════════════════════╣
+║   Environment: ${NODE_ENV.padEnd(43)}║
+║   Port: ${String(PORT).padEnd(51)}║
+║   Frontend: ${FRONTEND_URL.padEnd(48)}║
+╠════════════════════════════════════════════════════════════╣
+║   📍 API Root: http://localhost:${PORT}/api/v1${' '.repeat(24)}║
+║   🏥 Health: http://localhost:${PORT}/health${' '.repeat(20)}║
+║   📊 Leads: http://localhost:${PORT}/api/v1/leads${' '.repeat(14)}║
+║   📚 Programs: http://localhost:${PORT}/api/v1/programs${' '.repeat(8)}║
+║   📄 Content: http://localhost:${PORT}/api/v1/content${' '.repeat(9)}║
+╚════════════════════════════════════════════════════════════╝
 `)
+    })
+
+    server.on('error', (error: any) => {
+      if (error.code === 'EADDRINUSE') {
+        console.error(`❌ Port ${PORT} is already in use`)
+      } else {
+        console.error('❌ Server error:', error)
+      }
+      process.exit(1)
     })
   } catch (error) {
     console.error('❌ Failed to start server:', error)
