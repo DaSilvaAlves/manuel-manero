@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 
 // Request ID middleware (for tracing)
 app.use((req: Request, res: Response, next: NextFunction) => {
-  ;(req as any).id = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+  (req as any).id = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}` // eslint-disable-line @typescript-eslint/no-explicit-any
   next()
 })
 
