@@ -3,10 +3,10 @@ name: Deploy Pipeline
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 env:
   NODE_VERSION: '20'
@@ -52,6 +52,7 @@ jobs:
         image: postgres:15-alpine
         env:
           POSTGRES_DB: manuel_manero_test
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: test_password
         options: >-
           --health-cmd pg_isready
@@ -75,7 +76,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run tests
-        run: npm test
+        run: npm test --workspaces --if-present
         env:
           DATABASE_URL: postgresql://postgres:test_password@localhost:5432/manuel_manero_test
         continue-on-error: true
@@ -89,7 +90,7 @@ jobs:
     name: Deploy Backend (Railway)
     needs: [validate, test]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     timeout-minutes: 30
 
     steps:
@@ -117,7 +118,8 @@ jobs:
           exit 1
 
       - name: Notify Slack (Success)
-        if: success()
+        if: success() && secrets.SLACK_WEBHOOK_URL != ''
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1
         with:
           payload: |
@@ -137,7 +139,8 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Notify Slack (Failure)
-        if: failure()
+        if: failure() && secrets.SLACK_WEBHOOK_URL != ''
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1
         with:
           payload: |
@@ -161,7 +164,7 @@ jobs:
     name: Deploy Frontend (Vercel)
     needs: [validate, test, deploy-backend]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     timeout-minutes: 20
 
     steps:
@@ -178,7 +181,8 @@ jobs:
           prod: true
 
       - name: Notify Slack (Success)
-        if: success()
+        if: success() && secrets.SLACK_WEBHOOK_URL != ''
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1
         with:
           payload: |
@@ -202,7 +206,7 @@ jobs:
     name: Smoke Tests
     needs: [deploy-backend, deploy-frontend]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     timeout-minutes: 15
 
     steps:
@@ -219,7 +223,8 @@ jobs:
           curl -f https://manuel-manero-api.railway.app/api/v1 || exit 1
 
       - name: Notify Slack (Passed)
-        if: success()
+        if: success() && secrets.SLACK_WEBHOOK_URL != ''
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1
         with:
           payload: |
@@ -239,7 +244,8 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Notify Slack (Failed)
-        if: failure()
+        if: failure() && secrets.SLACK_WEBHOOK_URL != ''
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1
         with:
           payload: |

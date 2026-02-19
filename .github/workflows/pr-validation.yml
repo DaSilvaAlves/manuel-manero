@@ -1,0 +1,92 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches:
+      - master
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  quality:
+    name: Quality Gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: manuel_manero_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test_password
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run tests
+        run: npm test --workspaces --if-present
+        env:
+          DATABASE_URL: postgresql://postgres:test_password@localhost:5432/manuel_manero_test
+        continue-on-error: true
+
+  summary:
+    name: PR Quality Summary
+    needs: [quality, test]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Quality gate result
+        run: |
+          if [ "${{ needs.quality.result }}" == "success" ]; then
+            echo "✅ Quality gates passed"
+          else
+            echo "❌ Quality gates failed"
+            exit 1
+          fi
