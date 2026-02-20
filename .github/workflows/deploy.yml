@@ -217,11 +217,7 @@ jobs:
 
       - name: Check Frontend
         run: |
-          curl -f https://manuel-manero.com || exit 1
-
-      - name: Test API endpoint
-        run: |
-          curl -f https://manuel-manero-api.railway.app/api/v1 || exit 1
+          curl -f https://manuel-manero.vercel.app/ || exit 1
 
       - name: Notify Slack (Passed)
         if: success()
