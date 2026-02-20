@@ -2,7 +2,6 @@
   "name": "manuel-manero-web",
   "version": "1.0.0",
   "description": "Frontend Next.js para Ecossistema Manuel Manero",
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
