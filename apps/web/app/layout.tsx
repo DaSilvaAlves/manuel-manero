@@ -1,15 +1,61 @@
 import type { Metadata } from 'next'
-import '@/styles/globals.css'
+import './globals.css'
+import { ThemeProvider } from '@/lib/theme-provider'
+import { RootLayoutClient } from './layout-client'
 
 export const metadata: Metadata = {
   title: 'Manuel Manero | Marca Pessoal Milionária',
-  description: 'Construa uma Marca Pessoal Milionária com comunicação estratégica e IA',
+  description: 'Ecossistema para empreendedores construirem marca pessoal forte, comunicarem com impacto e alcançarem resultados escaláveis.',
+  keywords: 'marca pessoal, coaching, empreendedorismo, comunicação, personal branding',
+  openGraph: {
+    type: 'website',
+    locale: 'pt_PT',
+    url: 'https://manuelmanero.com',
+    siteName: 'Manuel Manero',
+    images: [
+      {
+        url: 'https://via.placeholder.com/1200x630',
+        width: 1200,
+        height: 630,
+        alt: 'Manuel Manero - Marca Pessoal Milionária',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="pt-PT">
-      <body>{children}</body>
+    <html lang="pt" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark')
+                } else {
+                  document.documentElement.classList.remove('dark')
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body suppressHydrationWarning>
+        <ThemeProvider>
+          <RootLayoutClient>{children}</RootLayoutClient>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
