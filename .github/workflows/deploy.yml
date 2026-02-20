@@ -161,25 +161,18 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
   # Job 4: Deploy Frontend to Vercel
+  # DISABLED - Vercel deploy is manual only to protect the production site
+  # To deploy: run `vercel deploy --prod` from apps/web manually
   deploy-frontend:
-    name: Deploy Frontend (Vercel)
+    name: Deploy Frontend (Vercel) - DISABLED
     needs: [validate, test, deploy-backend]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: false
     timeout-minutes: 20
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Vercel CLI
-        run: npm install -g vercel@latest
-
-      - name: Deploy to Vercel
-        run: vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      - name: Deploy disabled
+        run: echo "Vercel auto-deploy is disabled. Deploy manually."
 
       - name: Notify Slack (Success)
         if: success()

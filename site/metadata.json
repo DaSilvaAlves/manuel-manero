@@ -1,0 +1,8 @@
+{
+  "name": "Manuel Manero - Ecossistema UAU",
+  "description": "Hub central da marca pessoal de Manuel Manero, integrando autoridade, programas premium e inteligência artificial para personal branding milionário.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
