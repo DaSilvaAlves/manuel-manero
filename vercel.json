@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "npm run build --workspace=apps/web",
+  "outputDirectory": "apps/web/.next",
   "rewrites": [
     {
       "source": "/api/:match*",
