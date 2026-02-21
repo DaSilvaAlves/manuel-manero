@@ -3,7 +3,8 @@ name: Deploy Pipeline
 on:
   push:
     branches:
-      - master
+      - master   # validate + test only (safe for development)
+      - deploy   # full pipeline including Vercel deploy
   pull_request:
     branches:
       - master
@@ -90,7 +91,7 @@ jobs:
     name: Deploy Backend (Railway)
     needs: [validate, test]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/deploy' && github.event_name == 'push'
     timeout-minutes: 30
 
     steps:
@@ -161,18 +162,32 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
   # Job 4: Deploy Frontend to Vercel
-  # DISABLED - Vercel deploy is manual only to protect the production site
-  # To deploy: run `vercel deploy --prod` from apps/web manually
+  # Only runs when pushing to 'deploy' branch - master is safe for development
   deploy-frontend:
-    name: Deploy Frontend (Vercel) - DISABLED
+    name: Deploy Frontend (Vercel)
     needs: [validate, test, deploy-backend]
     runs-on: ubuntu-latest
-    if: false
+    if: github.ref == 'refs/heads/deploy' && github.event_name == 'push'
     timeout-minutes: 20
 
     steps:
-      - name: Deploy disabled
-        run: echo "Vercel auto-deploy is disabled. Deploy manually."
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Deploy site to Vercel
+        working-directory: site
+        run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Notify Slack (Success)
         if: success()
@@ -200,7 +215,7 @@ jobs:
     name: Smoke Tests
     needs: [deploy-backend, deploy-frontend]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/deploy' && github.event_name == 'push'
     timeout-minutes: 15
 
     steps:
