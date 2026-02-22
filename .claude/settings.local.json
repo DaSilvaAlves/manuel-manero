@@ -1,11 +1,17 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(vercel ls:*)",
+      "Bash(npx vercel@latest ls:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "exa",
     "browser",
     "context7",
     "desktop-commander"
   ],
-  "enableAllProjectMcpServers": true,
   "hooks": {
     "UserPromptSubmit": [
       {
