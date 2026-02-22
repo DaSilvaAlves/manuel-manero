@@ -33,7 +33,7 @@ const ContactSection: React.FC = () => (
               </a>
 
               <a
-                href="https://wa.me/351000000000"
+                href="https://wa.me/351968032398"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 text-slate-300 hover:text-amber-500 transition-colors group"

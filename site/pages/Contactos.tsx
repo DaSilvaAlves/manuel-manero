@@ -35,12 +35,12 @@ const Contactos: React.FC = () => (
               <div>
                 <h4 className="text-amber-500 text-xs uppercase tracking-widest font-bold mb-2">WhatsApp Business</h4>
                 <a
-                  href="https://wa.me/351912345678"
+                  href="https://wa.me/351968032398"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-amber-500 transition-colors text-lg"
                 >
-                  +351 912 345 678
+                  +351 968 032 398
                 </a>
               </div>
 

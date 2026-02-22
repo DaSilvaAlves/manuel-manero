@@ -50,7 +50,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Ana Silva',
     role: 'Mentora de Negócios',
     content: 'O Manuel mudou completamente a forma como me posiciono. Saí de 2k para 15k mensais em 3 meses.',
-    avatar: 'https://picsum.photos/seed/ana/100/100',
+    avatar: '/testemunho-1.png',
     program: 'Método PRIME',
   },
   {
@@ -58,7 +58,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'João Pereira',
     role: 'Consultor Financeiro',
     content: 'A Comunidade Milionária é o melhor investimento que fiz na minha carreira. O networking é inestimável.',
-    avatar: 'https://picsum.photos/seed/joao/100/100',
+    avatar: '/testemunho-2.png',
     program: 'Comunidade Milionária',
   },
   {
@@ -66,7 +66,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Carla Rodrigues',
     role: 'Coach de Liderança',
     content: 'Em 6 meses de MASTERY tripliciei o meu faturamento e tornei-me uma referência no meu nicho.',
-    avatar: 'https://picsum.photos/seed/carla/100/100',
+    avatar: '/testemunho-3.png',
     program: 'Personal Branding MASTERY',
   },
   {
@@ -74,7 +74,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Ricardo Santos',
     role: 'Empreendedor Digital',
     content: 'A mentoria privada foi transformadora. Manuel ajudou-me a estruturar o negócio e a escalar para 6 dígitos.',
-    avatar: 'https://picsum.photos/seed/ricardo/100/100',
+    avatar: '/testemunho-4.png',
     program: 'Mentoria Privada',
   },
 ];
@@ -85,7 +85,7 @@ export const BOOKS: Book[] = [
     title: 'O Livro do Milionário',
     price: '€16.00',
     description: 'Os princípios e mentalidade que constroem fortunas reais e duradouras.',
-    cover: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=560&fit=crop',
+    cover: '/livro-milionario.png',
     buyLink: 'https://www.manuelmanero.pt/livros',
   },
   {
@@ -93,7 +93,7 @@ export const BOOKS: Book[] = [
     title: 'Empreender Como Um Nómada Digital',
     price: '€16.00',
     description: 'Como construir um negócio lucrativo com liberdade geográfica total.',
-    cover: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=560&fit=crop',
+    cover: '/livro-nomada.png',
     buyLink: 'https://www.manuelmanero.pt/livros',
   },
   {
@@ -101,7 +101,7 @@ export const BOOKS: Book[] = [
     title: 'Pensar e Agir Fora da Caixa',
     price: '€16.00',
     description: 'Desenvolva o pensamento criativo e inovador que separa os líderes dos seguidores.',
-    cover: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=560&fit=crop',
+    cover: '/livro-caixa.png',
     buyLink: 'https://www.manuelmanero.pt/livros',
   },
 ];
