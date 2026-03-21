@@ -1,0 +1,3342 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brandbook Estrategico — O Livro do Ano Milionario</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── CSS Variables ────────────────────────────── */
+    :root {
+      --bg: #0A0A0F;
+      --surface: #12121A;
+      --gold: #C9A84C;
+      --amber: #E8B94A;
+      --ivory: #F5F0E8;
+      --smoke: #6B6B7B;
+      --charcoal: #1A1A24;
+      --glass-bg: rgba(255,255,255,0.03);
+      --glass-border: rgba(255,255,255,0.08);
+      --gold-glass: rgba(201,168,76,0.08);
+      --gold-border: rgba(201,168,76,0.15);
+    }
+
+    /* ─── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:80px; }
+    body {
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--ivory);
+      line-height:1.75;
+      -webkit-font-smoothing:antialiased;
+    }
+    a { color:var(--gold); text-decoration:none; }
+    img { max-width:100%; }
+    ::selection { background:rgba(201,168,76,0.3); color:var(--ivory); }
+
+    /* ─── Header ───────────────────────────────────── */
+    .header {
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      background:rgba(10,10,15,0.95);
+      backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 2rem; height:56px;
+    }
+    .header-brand {
+      font-family:'Playfair Display',serif;
+      font-weight:700; font-size:1.1rem; color:var(--gold);
+      white-space:nowrap;
+    }
+    .nav-tabs { display:flex; gap:0; }
+    .nav-tab {
+      padding:1rem 1.25rem; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.08em; text-transform:uppercase; color:var(--smoke);
+      font-family:'JetBrains Mono',monospace; transition:color 0.2s;
+      border-bottom:2px solid transparent;
+    }
+    .nav-tab:hover, .nav-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+
+    /* ─── Layout ───────────────────────────────────── */
+    .layout { display:flex; margin-top:56px; min-height:calc(100vh - 56px); }
+
+    /* ─── Sidebar ──────────────────────────────────── */
+    .sidebar {
+      width:280px; min-width:280px; max-height:calc(100vh - 56px);
+      overflow-y:auto; position:sticky; top:56px;
+      background:var(--surface);
+      border-right:1px solid rgba(255,255,255,0.04);
+      padding:1.5rem 0;
+    }
+    .sidebar::-webkit-scrollbar { width:4px; }
+    .sidebar::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:2px; }
+    .sidebar-badge {
+      display:block; margin:0 1.25rem 1.5rem; padding:0.6rem 1rem;
+      background:var(--gold-glass); border:1px solid var(--gold-border);
+      border-radius:8px; text-align:center;
+      font-family:'JetBrains Mono',monospace; font-size:0.6rem;
+      font-weight:700; letter-spacing:0.1em; color:var(--gold);
+      text-transform:uppercase;
+    }
+    .sidebar-block-label {
+      padding:1.25rem 1.5rem 0.4rem; font-size:0.6rem;
+      font-family:'JetBrains Mono',monospace; font-weight:700;
+      letter-spacing:0.12em; text-transform:uppercase; color:var(--smoke);
+    }
+    .sidebar-item {
+      display:flex; align-items:center; gap:0.75rem;
+      padding:0.55rem 1.5rem; color:var(--smoke); transition:all 0.15s;
+      font-size:0.85rem;
+    }
+    .sidebar-item:hover { color:var(--ivory); background:rgba(255,255,255,0.02); }
+    .sidebar-item.active { color:var(--gold); background:rgba(201,168,76,0.05); border-right:2px solid var(--gold); }
+    .sidebar-num {
+      font-family:'JetBrains Mono',monospace; font-size:0.7rem;
+      font-weight:700; min-width:1.5rem; color:inherit; opacity:0.6;
+    }
+    .sidebar-title { font-weight:500; }
+
+    /* ─── Main Content ─────────────────────────────── */
+    .main { flex:1; max-width:900px; padding:3rem 4rem; }
+    .block-anchor { scroll-margin-top:70px; }
+
+    .content-section { margin-bottom:5rem; scroll-margin-top:70px; }
+    .section-tag {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.65rem; font-weight:700;
+      letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:0.5rem;
+    }
+    .section-title {
+      font-family:'Playfair Display',serif;
+      font-size:2rem; font-weight:700; color:var(--ivory);
+      margin-bottom:2rem; letter-spacing:-0.02em;
+    }
+
+    /* ─── Markdown Content Styles ──────────────────── */
+    .section-body h3 {
+      font-family:'Playfair Display',serif;
+      font-size:1.4rem; font-weight:700; color:var(--ivory);
+      margin:2.5rem 0 1rem; letter-spacing:-0.01em;
+    }
+    .section-body h4 {
+      font-family:'Inter',sans-serif;
+      font-size:1.1rem; font-weight:600; color:var(--ivory);
+      margin:2rem 0 0.75rem;
+    }
+    .section-body p { margin-bottom:1rem; color:rgba(245,240,232,0.85); }
+    .section-body strong { color:var(--ivory); font-weight:600; }
+    .section-body blockquote {
+      border-left:3px solid var(--gold);
+      padding:1rem 1.5rem; margin:1.5rem 0;
+      background:var(--gold-glass); border-radius:0 8px 8px 0;
+      font-family:'Playfair Display',serif;
+      font-size:1.1rem; font-style:italic;
+      color:var(--ivory);
+    }
+    .section-body ul, .section-body ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .section-body li { margin-bottom:0.4rem; color:rgba(245,240,232,0.8); }
+    .section-body table {
+      width:100%; border-collapse:collapse; margin:1.5rem 0;
+      background:var(--glass-bg); border-radius:12px; overflow:hidden;
+    }
+    .section-body thead th {
+      background:rgba(201,168,76,0.06);
+      padding:0.75rem 1rem; text-align:left;
+      font-family:'JetBrains Mono',monospace; font-size:0.7rem;
+      font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+      color:var(--gold); border-bottom:1px solid var(--glass-border);
+    }
+    .section-body tbody td {
+      padding:0.65rem 1rem; border-bottom:1px solid rgba(255,255,255,0.03);
+      font-size:0.9rem; color:rgba(245,240,232,0.8);
+    }
+    .section-body tbody tr:last-child td { border-bottom:none; }
+    .section-body tbody tr:hover { background:rgba(255,255,255,0.02); }
+    .section-body code {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.85em; background:rgba(201,168,76,0.08);
+      padding:0.15em 0.4em; border-radius:4px; color:var(--gold);
+    }
+    .section-body hr { border:none; border-top:1px solid rgba(255,255,255,0.06); margin:2rem 0; }
+    .ascii-diagram {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.75rem; line-height:1.5;
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px; padding:1.5rem; margin:1.5rem 0;
+      overflow-x:auto; white-space:pre; color:var(--smoke);
+    }
+    .section-subtitle {
+      font-family:'Playfair Display',serif;
+      font-size:1.3rem; font-weight:700; color:var(--ivory);
+      margin:2rem 0 1.5rem;
+    }
+
+    /* ─── Spectrum (Section 03) ────────────────────── */
+    .spectrum-container { margin-top:2rem; }
+    .spectrum-row { display:flex; align-items:center; gap:1rem; margin-bottom:1.25rem; }
+    .spectrum-label-left, .spectrum-label-right {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.7rem; font-weight:700; letter-spacing:0.05em;
+      color:var(--smoke); min-width:80px; text-transform:uppercase;
+    }
+    .spectrum-label-left { text-align:right; }
+    .spectrum-label-right { text-align:left; }
+    .spectrum-bar {
+      flex:1; height:4px; background:rgba(255,255,255,0.06);
+      border-radius:2px; position:relative;
+    }
+    .spectrum-track { position:absolute; top:0; left:0; right:0; bottom:0; border-radius:2px; }
+    .spectrum-dot {
+      position:absolute; top:50%; width:16px; height:16px;
+      background:var(--gold); border-radius:50%;
+      transform:translate(-50%,-50%);
+      box-shadow:0 0 12px rgba(201,168,76,0.4);
+    }
+    .spectrum-note { margin-top:1.5rem; font-size:0.9rem; color:var(--smoke); }
+
+    /* ─── Truelines (Section 06) ───────────────────── */
+    .truelines-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.25rem; margin-top:2rem; }
+    .trueline-card {
+      background:var(--gold-glass); border:1px solid var(--gold-border);
+      border-radius:16px; padding:1.5rem; position:relative; overflow:hidden;
+      transition:all 0.3s;
+    }
+    .trueline-card:hover { background:rgba(201,168,76,0.12); border-color:rgba(201,168,76,0.25); box-shadow:0 0 20px rgba(201,168,76,0.1); }
+    .trueline-id {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.6rem; font-weight:700; letter-spacing:0.12em;
+      color:var(--gold); margin-bottom:0.25rem;
+    }
+    .trueline-label { font-size:0.8rem; color:var(--smoke); margin-bottom:0.75rem; }
+    .trueline-quote {
+      font-family:'Playfair Display',serif;
+      font-size:1.05rem; font-weight:700; color:var(--ivory);
+      line-height:1.4; border:none; padding:0; margin:0; background:none;
+    }
+
+    /* ─── Journey (Section 09) ─────────────────────── */
+    .journey-timeline { margin-top:2rem; }
+    .journey-stage { display:flex; gap:1.5rem; }
+    .journey-connector { display:flex; flex-direction:column; align-items:center; min-width:40px; }
+    .journey-dot {
+      width:40px; height:40px; border-radius:50%;
+      background:var(--gold-glass); border:2px solid var(--gold);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'JetBrains Mono',monospace; font-weight:700;
+      font-size:0.8rem; color:var(--gold); flex-shrink:0;
+    }
+    .journey-line {
+      width:2px; flex:1; background:linear-gradient(180deg,var(--gold),rgba(201,168,76,0.1));
+      margin:4px 0;
+    }
+    .journey-content { flex:1; margin-bottom:1rem; }
+    .glass-card-sm {
+      background:var(--glass-bg); border:1px solid var(--glass-border);
+      border-radius:12px; padding:1.25rem;
+    }
+    .journey-stage-name { font-weight:700; color:var(--ivory); margin-bottom:0.35rem; font-size:1rem; }
+    .journey-stage-desc { font-size:0.85rem; color:var(--smoke); line-height:1.6; }
+    .journey-stage-last .journey-dot { background:var(--gold); color:var(--bg); }
+
+    /* ─── Colors (Section 11) ──────────────────────── */
+    .color-group { margin-bottom:2.5rem; }
+    .color-group-label {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.65rem; font-weight:700; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--gold); margin-bottom:1rem;
+    }
+    .color-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:1rem; }
+    .color-swatch {
+      height:120px; border-radius:12px; position:relative;
+      border:1px solid rgba(255,255,255,0.06);
+      display:flex; align-items:flex-end; overflow:hidden;
+      transition:transform 0.2s;
+    }
+    .color-swatch:hover { transform:scale(1.03); }
+    .swatch-info {
+      width:100%; padding:0.6rem 0.75rem;
+      background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);
+      display:flex; flex-direction:column; gap:0.1rem;
+    }
+    .swatch-info.swatch-light .swatch-name, .swatch-info.swatch-light .swatch-hex, .swatch-info.swatch-light .swatch-rgb { color:#F5F0E8; }
+    .swatch-info.swatch-dark .swatch-name { color:#0A0A0F; }
+    .swatch-info.swatch-dark .swatch-hex { color:rgba(10,10,15,0.7); }
+    .swatch-info.swatch-dark .swatch-rgb { color:rgba(10,10,15,0.5); }
+    .swatch-name { font-weight:700; font-size:0.85rem; }
+    .swatch-hex { font-family:'JetBrains Mono',monospace; font-size:0.7rem; }
+    .swatch-rgb { font-family:'JetBrains Mono',monospace; font-size:0.6rem; opacity:0.7; }
+    .gradient-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; }
+    .gradient-swatch { display:flex; flex-direction:column; gap:0.5rem; }
+    .gradient-preview {
+      height:80px; border-radius:12px;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .gradient-name { font-size:0.8rem; color:var(--smoke); text-align:center; }
+
+    /* ─── Typography (Section 12) ──────────────────── */
+    .type-scale { margin-bottom:3rem; }
+    .type-row {
+      display:flex; align-items:flex-start; gap:1.5rem;
+      padding:1.25rem 0; border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+    .type-label {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.65rem; font-weight:700; letter-spacing:0.08em;
+      text-transform:uppercase; color:var(--gold);
+      min-width:70px; padding-top:0.5rem;
+    }
+    .type-sample-wrap { flex:1; display:flex; flex-direction:column; gap:0.5rem; }
+    .type-meta { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--smoke); }
+    .type-families { margin-top:2rem; }
+    .type-families-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .type-family-card { display:flex; flex-direction:column; gap:0.5rem; text-align:center; }
+    .type-family-role { font-size:0.8rem; color:var(--smoke); }
+    .type-family-weights { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--smoke); opacity:0.6; }
+
+    /* ─── Glass (Section 13) ───────────────────────── */
+    .glass-demo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:1rem; margin-bottom:2.5rem; }
+    .glass-demo-card { min-height:140px; display:flex; flex-direction:column; justify-content:flex-end; }
+    .glass-label {
+      font-family:'JetBrains Mono',monospace; font-size:0.6rem; font-weight:700;
+      letter-spacing:0.12em; color:var(--smoke); margin-bottom:0.25rem;
+    }
+    .glass-name { font-weight:700; color:var(--ivory); font-size:1rem; margin-bottom:0.25rem; }
+    .glass-specs { font-size:0.75rem; color:var(--smoke); }
+    .glass-light-bar {
+      position:absolute; top:0; left:15%; right:15%; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+    }
+    .glass-light-bar-gold {
+      position:absolute; top:0; left:15%; right:15%; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);
+    }
+    .glass-effects-demo { margin-top:1rem; }
+    .glass-effects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .glass-effect-card { display:flex; flex-direction:column; gap:0.5rem; }
+    .glass-effect-label { font-weight:700; font-size:0.9rem; color:var(--ivory); }
+    .glass-effect-desc { font-size:0.75rem; color:var(--smoke); }
+    .glass-top-glow {
+      position:absolute; top:0; left:10%; right:10%; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);
+    }
+    .glow-gold { box-shadow:0 0 20px rgba(201,168,76,0.15),0 0 40px rgba(201,168,76,0.05); }
+    .pulse-gold-card { animation:pulse-gold 2s infinite; }
+    @keyframes pulse-gold {
+      0%,100% { box-shadow:0 0 20px rgba(201,168,76,0.2); }
+      50% { box-shadow:0 0 30px rgba(201,168,76,0.35); }
+    }
+
+    /* ─── Components (Section 14) ──────────────────── */
+    .component-section { margin-bottom:2.5rem; }
+    .comp-category {
+      font-family:'JetBrains Mono',monospace;
+      font-size:0.65rem; font-weight:700; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:1rem; padding-bottom:0.5rem;
+      border-bottom:1px solid rgba(201,168,76,0.15);
+    }
+    .comp-row { display:flex; flex-wrap:wrap; gap:1.5rem; align-items:flex-start; }
+    .comp-item { display:flex; flex-direction:column; gap:0.5rem; }
+    .comp-label { font-size:0.7rem; color:var(--smoke); font-family:'JetBrains Mono',monospace; }
+
+    .btn-demo-primary {
+      background:#C9A84C; color:#0A0A0F; padding:0.75rem 1.5rem;
+      border:none; border-radius:8px; font-family:'Inter',sans-serif;
+      font-weight:700; font-size:0.95rem; letter-spacing:0.02em;
+      cursor:pointer; box-shadow:0 0 20px rgba(201,168,76,0.25);
+      transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn-demo-primary.btn-hover { background:#E8B94A; box-shadow:0 0 30px rgba(201,168,76,0.4); transform:translateY(-1px); }
+    .btn-demo-ghost {
+      background:transparent; color:#C9A84C; padding:0.75rem 1.5rem;
+      border:1px solid rgba(201,168,76,0.3); border-radius:8px;
+      font-family:'Inter',sans-serif; font-weight:600; font-size:0.95rem;
+      cursor:pointer; transition:all 0.25s;
+    }
+    .btn-demo-ghost.btn-ghost-hover { background:rgba(201,168,76,0.08); border-color:rgba(201,168,76,0.5); }
+    .input-demo {
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.10);
+      border-radius:8px; padding:0.75rem 1rem; font-family:'Inter',sans-serif;
+      font-size:1rem; color:var(--ivory); width:100%; outline:none;
+    }
+    .input-demo::placeholder { color:var(--smoke); }
+    .input-demo.input-focus { border-color:rgba(201,168,76,0.4); box-shadow:0 0 0 3px rgba(201,168,76,0.1); }
+
+    .badge-demo {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      background:var(--gold-glass); border:1px solid var(--gold-border);
+      border-radius:20px; padding:0.35rem 1rem;
+      font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+      font-weight:700; letter-spacing:0.08em; color:var(--gold);
+    }
+    .badge-demo.gold { background:rgba(201,168,76,0.12); border-color:rgba(201,168,76,0.25); }
+    .badge-demo.neutral { background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.08); color:var(--smoke); }
+
+    .card-inspiration-demo {
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px; backdrop-filter:blur(12px); padding:2rem;
+      position:relative; overflow:hidden; max-width:450px;
+    }
+    .card-insp-light {
+      position:absolute; top:0; left:10%; right:10%; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);
+    }
+    .card-insp-day {
+      font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+      font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:0.75rem;
+    }
+    .card-insp-quote {
+      font-family:'Playfair Display',serif; font-size:1.3rem;
+      font-weight:700; color:var(--ivory); line-height:1.4; margin-bottom:1rem;
+    }
+
+    .card-testimonial-demo {
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px; backdrop-filter:blur(8px); padding:1.5rem;
+      display:flex; gap:1rem; max-width:500px;
+    }
+    .testimonial-avatar {
+      width:48px; height:48px; border-radius:50%;
+      border:2px solid rgba(201,168,76,0.3);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Inter',sans-serif; font-weight:700;
+      font-size:0.85rem; color:var(--gold); flex-shrink:0;
+      background:rgba(201,168,76,0.08);
+    }
+    .testimonial-body { flex:1; }
+    .testimonial-quote-mark {
+      font-family:'Playfair Display',serif; font-size:2rem;
+      color:rgba(201,168,76,0.3); line-height:1;
+    }
+    .testimonial-text { font-size:0.9rem; color:var(--ivory); margin-bottom:0.5rem; line-height:1.6; }
+    .testimonial-author { font-size:0.75rem; color:var(--smoke); }
+
+    .countdown-demo { display:flex; gap:1rem; }
+    .countdown-unit {
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+      border-radius:12px; padding:1rem; min-width:80px; text-align:center;
+    }
+    .countdown-num {
+      font-family:'JetBrains Mono',monospace; font-size:2.4rem;
+      font-weight:700; color:var(--gold); line-height:1; display:block;
+    }
+    .countdown-label {
+      font-family:'Inter',sans-serif; font-size:0.7rem; font-weight:500;
+      color:var(--smoke); text-transform:uppercase; letter-spacing:0.05em;
+      margin-top:0.25rem; display:block;
+    }
+
+    .navbar-demo {
+      width:100%; background:rgba(10,10,15,0.85);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px; backdrop-filter:blur(16px);
+      padding:0.75rem 1.5rem; display:flex;
+      align-items:center; justify-content:space-between;
+    }
+    .navbar-logo { font-family:'Playfair Display',serif; font-weight:700; color:var(--ivory); font-size:0.95rem; }
+    .navbar-links { display:flex; align-items:center; gap:1.5rem; font-size:0.85rem; color:var(--smoke); }
+
+    /* ─── Icons (Section 15) ───────────────────────── */
+    .icon-section { margin-bottom:2.5rem; }
+    .icon-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(90px,1fr)); gap:1rem; }
+    .icon-item { display:flex; flex-direction:column; align-items:center; gap:0.4rem; text-align:center; }
+    .icon-circle {
+      width:56px; height:56px; border-radius:50%;
+      background:var(--gold-glass); border:1px solid var(--gold-border);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); transition:all 0.2s;
+    }
+    .icon-circle:hover { background:rgba(201,168,76,0.15); box-shadow:0 0 15px rgba(201,168,76,0.2); }
+    .icon-circle.func { background:var(--glass-bg); border-color:var(--glass-border); color:var(--ivory); }
+    .icon-circle.func:hover { background:rgba(255,255,255,0.06); }
+    .icon-circle svg, .icon-circle i { width:22px; height:22px; }
+    .icon-pilar-num { font-family:'JetBrains Mono',monospace; font-size:0.6rem; font-weight:700; color:var(--gold); }
+    .icon-name { font-size:0.65rem; color:var(--smoke); line-height:1.3; }
+    .specs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem; }
+    .specs-grid > div { display:flex; justify-content:space-between; }
+    .spec-label { font-size:0.8rem; color:var(--smoke); }
+    .spec-value { font-size:0.8rem; font-family:'JetBrains Mono',monospace; }
+
+    /* ─── Mockups (Section 16) ─────────────────────── */
+    .mockup-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+    .mockup-card {
+      background:var(--glass-bg); border:1px solid var(--glass-border);
+      border-radius:12px; overflow:hidden; transition:all 0.2s;
+    }
+    .mockup-card:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,0,0,0.3); }
+    .mockup-preview {
+      height:140px; display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .mockup-num {
+      font-family:'JetBrains Mono',monospace; font-size:2rem;
+      font-weight:700; color:rgba(201,168,76,0.2);
+    }
+    .mockup-info { padding:1rem; display:flex; flex-direction:column; gap:0.2rem; }
+    .mockup-name { font-weight:600; font-size:0.85rem; color:var(--ivory); }
+    .mockup-size { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--smoke); }
+    .mockup-priority { font-family:'JetBrains Mono',monospace; font-size:0.65rem; font-weight:700; }
+
+    /* ─── Responsive ───────────────────────────────── */
+    @media (max-width:1024px) {
+      .sidebar { display:none; }
+      .main { padding:2rem; max-width:100%; }
+      .nav-tab { padding:0.75rem 0.75rem; font-size:0.6rem; }
+      .type-families-grid { grid-template-columns:1fr; }
+      .glass-effects-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .header { padding:0 1rem; }
+      .nav-tabs { overflow-x:auto; gap:0; }
+      .nav-tab { white-space:nowrap; padding:0.75rem 0.6rem; font-size:0.55rem; }
+      .main { padding:1.5rem; }
+      .section-title { font-size:1.6rem; }
+      .comp-row { flex-direction:column; }
+      .countdown-demo { flex-wrap:wrap; justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">O Livro do Ano Milionario</div>
+    <nav class="nav-tabs"><a href="#block-fundamentos" class="nav-tab" data-block="fundamentos">FUNDAMENTOS</a><a href="#block-estrategia" class="nav-tab" data-block="estrategia">ESTRATEGIA</a><a href="#block-identidade-verbal" class="nav-tab" data-block="identidade-verbal">IDENTIDADE VERBAL</a><a href="#block-jornada" class="nav-tab" data-block="jornada">JORNADA</a><a href="#block-identidade-visual" class="nav-tab" data-block="identidade-visual">IDENTIDADE VISUAL</a><a href="#block-showcase" class="nav-tab" data-block="showcase">SHOWCASE</a></nav>
+  </header>
+
+  <!-- Layout -->
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-badge">Brandbook Estrategico</div>
+      <div class="sidebar-block-label">Fundamentos</div><a href="#sec-01" class="sidebar-item" data-target="sec-01"><span class="sidebar-num">01</span><span class="sidebar-title">MANIFESTO</span></a><a href="#sec-02" class="sidebar-item" data-target="sec-02"><span class="sidebar-num">02</span><span class="sidebar-title">PROPÓSITO</span></a><a href="#sec-03" class="sidebar-item" data-target="sec-03"><span class="sidebar-num">03</span><span class="sidebar-title">ARQUÉTIPO</span></a><div class="sidebar-block-label">Estrategia</div><a href="#sec-04" class="sidebar-item" data-target="sec-04"><span class="sidebar-num">04</span><span class="sidebar-title">POSICIONAMENTO</span></a><a href="#sec-05" class="sidebar-item" data-target="sec-05"><span class="sidebar-num">05</span><span class="sidebar-title">BRANDSCRIPT</span></a><a href="#sec-06" class="sidebar-item" data-target="sec-06"><span class="sidebar-num">06</span><span class="sidebar-title">TRUELINES</span></a><div class="sidebar-block-label">Identidade Verbal</div><a href="#sec-07" class="sidebar-item" data-target="sec-07"><span class="sidebar-num">07</span><span class="sidebar-title">NAMING</span></a><a href="#sec-08" class="sidebar-item" data-target="sec-08"><span class="sidebar-num">08</span><span class="sidebar-title">VOCABULÁRIO</span></a><div class="sidebar-block-label">Jornada & Prova</div><a href="#sec-09" class="sidebar-item" data-target="sec-09"><span class="sidebar-num">09</span><span class="sidebar-title">JORNADA DO HERÓI</span></a><a href="#sec-10" class="sidebar-item" data-target="sec-10"><span class="sidebar-num">10</span><span class="sidebar-title">DEPOIMENTOS</span></a><div class="sidebar-block-label">Identidade Visual</div><a href="#sec-11" class="sidebar-item" data-target="sec-11"><span class="sidebar-num">11</span><span class="sidebar-title">MARCAS & CORES</span></a><a href="#sec-12" class="sidebar-item" data-target="sec-12"><span class="sidebar-num">12</span><span class="sidebar-title">TIPOGRAFIA</span></a><a href="#sec-13" class="sidebar-item" data-target="sec-13"><span class="sidebar-num">13</span><span class="sidebar-title">GLASSMORPHISM</span></a><a href="#sec-14" class="sidebar-item" data-target="sec-14"><span class="sidebar-num">14</span><span class="sidebar-title">COMPONENTES</span></a><a href="#sec-15" class="sidebar-item" data-target="sec-15"><span class="sidebar-num">15</span><span class="sidebar-title">ÍCONES & ILUSTRAÇÕES</span></a><div class="sidebar-block-label">Showcase</div><a href="#sec-16" class="sidebar-item" data-target="sec-16"><span class="sidebar-num">16</span><span class="sidebar-title">MOCKUPS</span></a>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div id="block-fundamentos" class="block-anchor"></div>
+      <section id="sec-01" class="content-section" data-block="fundamentos">
+        <div class="section-tag">01 // MANIFESTO</div>
+        <h2 class="section-title">MANIFESTO</h2>
+        <div class="section-body"><hr>
+<h3>O Ano Milionário Começa Hoje</h3>
+<p>Há quem espere pelo dia 1 de Janeiro.
+Há quem espere pela segunda-feira.
+Há quem espere pelo momento perfeito.</p>
+<p>Nós não esperamos.</p>
+<p>No dia 30 de Outubro de 2023, Manuel Manero assumiu um compromisso: escrever todos os dias. Não para agradar algoritmos. Não para vender. Para si próprio — e para todos os que partilham a mesma visão de que a vida pode ser vivida de forma abundante, com propósito e com resultados.</p>
+<p>Esse compromisso diário transformou-se em 366 inspirações.
+366 dias de combustível para quem sabe que a motivação vem de dentro, mas que a inspiração — como o oxigénio que respiramos — precisa de vir de fora.</p>
+<p><strong>Este não é um livro de auto-ajuda.</strong></p>
+<p>É um companheiro de jornada. Um contrato entre o leitor e o seu melhor ano. Uma decisão de construir, todos os dias, com intenção, a vida que merece ser vivida.</p>
+<p>Assente em 11 pilares fundamentais — não teorias académicas, mas princípios testados, vividos, praticados — este livro é o mapa para quem decidiu parar de sobreviver e começar a prosperar.</p>
+<p><strong>366 dias. 11 pilares. 1 vida milionária.</strong></p>
+<p>O teu ano milionário não começa quando o calendário muda.
+Começa quando tu decides que começa.</p>
+<p>E esse dia é hoje.</p>
+<hr>
+<h3>Princípios do Manifesto</h3>
+<table>
+<thead>
+<tr>
+<th>Princípio</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Compromisso antes de inspiração</strong></td>
+<td>O livro nasceu de disciplina diária — 500+ dias de emails consecutivos</td>
+</tr>
+<tr>
+<td><strong>Inspiração é oxigénio</strong></td>
+<td>Sem combustível externo, até a melhor motivação interna se esgota</td>
+</tr>
+<tr>
+<td><strong>Vida milionária ≠ dinheiro</strong></td>
+<td>Propósito + presença + sentido + significado + resultados</td>
+</tr>
+<tr>
+<td><strong>Experiência sobre teoria</strong></td>
+<td>Cada inspiração vem de algo vivido, não de algo lido</td>
+</tr>
+<tr>
+<td><strong>366, não 365</strong></td>
+<td>Inclui 29 de Fevereiro — porque anos milionários não saltam dias</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>A Promessa</h3>
+<blockquote>
+<p>Quem ler este livro com intenção — um dia de cada vez, sem atalhos — vai terminar o ano com mais clareza, mais força e mais resultados do que o ano anterior.</p>
+</blockquote>
+<p>Não prometemos riqueza instantânea.
+Prometemos o combustível diário para construí-la.</p>
+<hr>
+<hr>
+</div>
+      </section>
+    
+      <section id="sec-02" class="content-section" data-block="fundamentos">
+        <div class="section-tag">02 // PROPÓSITO</div>
+        <h2 class="section-title">PROPÓSITO</h2>
+        <div class="section-body"><hr>
+<h3>Declaração de Propósito</h3>
+<blockquote>
+<p><strong>Inspirar empreendedores, líderes e construtores de vida a viverem o seu ano mais extraordinário — todos os dias, um dia de cada vez.</strong></p>
+</blockquote>
+<hr>
+<h3>Modelo de Propósito</h3>
+<div class="ascii-diagram">PAIXÃO                    MISSÃO
+    (o que amamos)           (o que o mundo precisa)
+           \                      /
+            \                    /
+             ----  PROPÓSITO ----
+            /                    \
+           /                      \
+    PROFISSÃO                  VOCAÇÃO
+   (pelo que nos               (no que somos
+    pagam)                      excelentes)</div>
+
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Aplicação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Paixão</strong></td>
+<td>Comunicar, inspirar, partilhar aprendizagens de vida</td>
+</tr>
+<tr>
+<td><strong>Missão</strong></td>
+<td>Elevar a qualidade de vida de empreendedores de língua portuguesa</td>
+</tr>
+<tr>
+<td><strong>Vocação</strong></td>
+<td>Traduzir princípios complexos em acções diárias simples e praticáveis</td>
+</tr>
+<tr>
+<td><strong>Profissão</strong></td>
+<td>Mentoria, formação, escrita — 15+ anos de construção de autoridade</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Pilares do Propósito</h3>
+<p>O propósito materializa-se em 3 níveis:</p>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Individual</strong></td>
+<td>Cada leitor conquista mais um dia com intenção</td>
+<td>&quot;A inspiração de hoje mudou a minha decisão sobre o negócio&quot;</td>
+</tr>
+<tr>
+<td><strong>Comunitário</strong></td>
+<td>Leitores partilham progresso e criam accountability</td>
+<td>Grupo de leitores que lê junto, 1 dia de cada vez</td>
+</tr>
+<tr>
+<td><strong>Cultural</strong></td>
+<td>Redefinir o que &quot;vida milionária&quot; significa em Portugal</td>
+<td>Abundância = propósito + presença + resultados (não ostentação)</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>O Propósito em Acção</h3>
+<p>O propósito não vive na contracapa. Vive em cada ponto de contacto:</p>
+<table>
+<thead>
+<tr>
+<th>Ponto de Contacto</th>
+<th>Como o Propósito se Manifesta</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landing page</td>
+<td>&quot;O teu ano milionário começa hoje&quot; — não &quot;compra o livro&quot;</td>
+</tr>
+<tr>
+<td>Email pré-lançamento</td>
+<td>Uma inspiração real por email, não só marketing</td>
+</tr>
+<tr>
+<td>Stand na Feira</td>
+<td>Experiência de escolher &quot;a inspiração do teu dia&quot; — não só vender</td>
+</tr>
+<tr>
+<td>Pós-compra</td>
+<td>Sequência de 11 emails por pilar — acompanhamento, não abandono</td>
+</tr>
+<tr>
+<td>Redes sociais</td>
+<td>1 citação real por dia — conteúdo que vale por si, sem precisar do livro</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+</div>
+      </section>
+    
+      <section id="sec-03" class="content-section" data-block="fundamentos">
+        <div class="section-tag">03 // ARQUÉTIPO</div>
+        <h2 class="section-title">ARQUÉTIPO</h2>
+        <div class="section-body"><hr>
+<h3>O Mentor Soberano</h3>
+<p>O arquétipo da marca &quot;O Livro do Ano Milionário&quot; combina dois arquétipos primários de Carl Jung:</p>
+<div class="ascii-diagram">O SÁBIO (The Sage)
+        Sabedoria | Conhecimento | Verdade
+                    |
+                    |
+         O MENTOR SOBERANO
+         (arquétipo combinado)
+                    |
+                    |
+        O SOBERANO (The Ruler)
+        Ordem | Prosperidade | Liderança</div>
+
+<hr>
+<h3>Perfil do Arquétipo</h3>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>O Mentor Soberano</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Desejo nuclear</strong></td>
+<td>Criar ordem a partir do caos através do conhecimento vivido</td>
+</tr>
+<tr>
+<td><strong>Objectivo</strong></td>
+<td>Que cada leitor construa a sua própria soberania sobre a vida</td>
+</tr>
+<tr>
+<td><strong>Maior medo</strong></td>
+<td>Irrelevância — partilhar sabedoria que ninguém aplica</td>
+</tr>
+<tr>
+<td><strong>Estratégia</strong></td>
+<td>Demonstrar pelo exemplo antes de ensinar pela palavra</td>
+</tr>
+<tr>
+<td><strong>Fraqueza</strong></td>
+<td>Pode parecer inacessível se não mostrar vulnerabilidade</td>
+</tr>
+<tr>
+<td><strong>Dom</strong></td>
+<td>Transformar complexidade em clareza diária praticável</td>
+</tr>
+<tr>
+<td><strong>Voz</strong></td>
+<td>Directa, experiencial, sem jargão académico</td>
+</tr>
+<tr>
+<td><strong>Tom</strong></td>
+<td>Confiante sem ser arrogante. Próximo sem ser casual</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>O Mentor Soberano vs Outros Arquétipos</h3>
+<table>
+<thead>
+<tr>
+<th>Arquétipo</th>
+<th>Como Fala</th>
+<th>O Mentor Soberano</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>O Professor</td>
+<td>&quot;Estudos mostram que...&quot;</td>
+<td>&quot;Eu vivi isto e funcionou.&quot;</td>
+</tr>
+<tr>
+<td>O Guru</td>
+<td>&quot;Confia no universo.&quot;</td>
+<td>&quot;Confia no teu trabalho diário.&quot;</td>
+</tr>
+<tr>
+<td>O Coach</td>
+<td>&quot;O que queres alcançar?&quot;</td>
+<td>&quot;Isto é o que precisas fazer hoje.&quot;</td>
+</tr>
+<tr>
+<td>O Influenciador</td>
+<td>&quot;Olha o que eu tenho.&quot;</td>
+<td>&quot;Olha o que podes construir.&quot;</td>
+</tr>
+<tr>
+<td><strong>O Mentor Soberano</strong></td>
+<td><strong>&quot;Eu fiz. Tu podes. Eis como.&quot;</strong></td>
+<td><strong>Experiência + estrutura + acção</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Manifestação do Arquétipo por Canal</h3>
+<table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>Expressão do Arquétipo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Livro</strong></td>
+<td>Cada inspiração abre com experiência vivida, fecha com acção concreta</td>
+</tr>
+<tr>
+<td><strong>Email diário</strong></td>
+<td>Tom de conversa com amigo mais experiente — nunca professor</td>
+</tr>
+<tr>
+<td><strong>Redes sociais</strong></td>
+<td>Partilha de bastidores reais, não cenários fabricados</td>
+</tr>
+<tr>
+<td><strong>Feira do Livro</strong></td>
+<td>Presença acessível — assina livros, conversa, ouve</td>
+</tr>
+<tr>
+<td><strong>Mentoria</strong></td>
+<td>Desafia com respeito, não com pressão</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Personalidade da Marca (espectro)</h3>
+<div class="ascii-diagram">Formal -------|----------X--- Casual
+Sério --------|--------X----- Divertido
+Distante -----|------X------- Próximo
+Teórico ------|-X------------ Prático
+Cauteloso ----|--------X----- Ousado
+Exclusivo ----|-----X-------- Acessível</div>
+
+<p>O posicionamento é <strong>próximo mas com autoridade</strong>, <strong>prático mas com profundidade</strong>, <strong>ousado mas com fundamentação</strong>.</p>
+<hr>
+<hr>
+
+    <div class="spectrum-container">
+      <h3 class="section-subtitle">Personalidade da Marca</h3>
+      
+        <div class="spectrum-row">
+          <span class="spectrum-label-left">Formal</span>
+          <div class="spectrum-bar">
+            <div class="spectrum-track"></div>
+            <div class="spectrum-dot" style="left:70%"></div>
+          </div>
+          <span class="spectrum-label-right">Casual</span>
+        </div>
+      
+        <div class="spectrum-row">
+          <span class="spectrum-label-left">Serio</span>
+          <div class="spectrum-bar">
+            <div class="spectrum-track"></div>
+            <div class="spectrum-dot" style="left:60%"></div>
+          </div>
+          <span class="spectrum-label-right">Divertido</span>
+        </div>
+      
+        <div class="spectrum-row">
+          <span class="spectrum-label-left">Distante</span>
+          <div class="spectrum-bar">
+            <div class="spectrum-track"></div>
+            <div class="spectrum-dot" style="left:65%"></div>
+          </div>
+          <span class="spectrum-label-right">Proximo</span>
+        </div>
+      
+        <div class="spectrum-row">
+          <span class="spectrum-label-left">Teorico</span>
+          <div class="spectrum-bar">
+            <div class="spectrum-track"></div>
+            <div class="spectrum-dot" style="left:15%"></div>
+          </div>
+          <span class="spectrum-label-right">Pratico</span>
+        </div>
+      
+        <div class="spectrum-row">
+          <span class="spectrum-label-left">Cauteloso</span>
+          <div class="spectrum-bar">
+            <div class="spectrum-track"></div>
+            <div class="spectrum-dot" style="left:60%"></div>
+          </div>
+          <span class="spectrum-label-right">Ousado</span>
+        </div>
+      
+        <div class="spectrum-row">
+          <span class="spectrum-label-left">Exclusivo</span>
+          <div class="spectrum-bar">
+            <div class="spectrum-track"></div>
+            <div class="spectrum-dot" style="left:50%"></div>
+          </div>
+          <span class="spectrum-label-right">Acessivel</span>
+        </div>
+      
+      <p class="spectrum-note">O posicionamento e <strong>proximo mas com autoridade</strong>, <strong>pratico mas com profundidade</strong>, <strong>ousado mas com fundamentacao</strong>.</p>
+    </div>
+  </div>
+      </section>
+    <div id="block-estrategia" class="block-anchor"></div>
+      <section id="sec-04" class="content-section" data-block="estrategia">
+        <div class="section-tag">04 // POSICIONAMENTO</div>
+        <h2 class="section-title">POSICIONAMENTO</h2>
+        <div class="section-body"><hr>
+<h3>Declaração de Posicionamento</h3>
+<blockquote>
+<p><strong>Para empreendedores e líderes de língua portuguesa que procuram consistência e resultados na sua jornada de vida, &quot;O Livro do Ano Milionário&quot; é o único livro de inspiração diária que combina experiência vivida com um sistema de 11 pilares para construir uma vida abundante — porque foi escrito por quem faz, não por quem teoriza.</strong></p>
+</blockquote>
+<hr>
+<h3>Mapa de Posicionamento</h3>
+<div class="ascii-diagram">INSPIRACIONAL
+                         |
+                         |
+    GENÉRICO --------- [ZONA DE OPORTUNIDADE] --------- ESPECIALIZADO
+    (auto-ajuda)         |         ^                    (nicho coaching)
+                         |         |
+                         |    O LIVRO DO ANO
+                         |    MILIONÁRIO
+                         |
+                    PRÁTICO</div>
+
+<table>
+<thead>
+<tr>
+<th>Eixo</th>
+<th>Posição</th>
+<th>Justificação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Inspiracional ↔ Prático</strong></td>
+<td>70% prático, 30% inspiracional</td>
+<td>Cada inspiração leva a acção, não apenas reflexão</td>
+</tr>
+<tr>
+<td><strong>Genérico ↔ Especializado</strong></td>
+<td>60% especializado</td>
+<td>Nicho definido (empreendedores 25-50), mas acessível a qualquer pessoa</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Landscape Competitivo</h3>
+<table>
+<thead>
+<tr>
+<th>Concorrente</th>
+<th>Posição</th>
+<th>Diferenciação do OLAM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;O Poder do Hábito&quot; (Duhigg)</td>
+<td>Científico, hábitos gerais</td>
+<td>OLAM é pessoal, diário, baseado em 11 pilares próprios</td>
+</tr>
+<tr>
+<td>&quot;5 Second Rule&quot; (Robbins)</td>
+<td>1 conceito, aplicação universal</td>
+<td>OLAM tem 366 conceitos, 1 por dia, sistema completo</td>
+</tr>
+<tr>
+<td>&quot;O Milagre da Manhã&quot; (Elrod)</td>
+<td>Rotina matinal única</td>
+<td>OLAM cobre o dia inteiro com 11 dimensões da vida</td>
+</tr>
+<tr>
+<td>&quot;Atomic Habits&quot; (Clear)</td>
+<td>Sistema de hábitos micro</td>
+<td>OLAM não é sobre hábitos — é sobre combustível diário</td>
+</tr>
+<tr>
+<td>Devocional religioso</td>
+<td>Espiritual, baseado em fé</td>
+<td>OLAM é secular, baseado em experiência empresarial</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>5 Diferenciais Inegociáveis</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Diferencial</th>
+<th>Porque Importa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>366 dias, não 365</strong></td>
+<td>Inclui 29/Fev — o compromisso não salta dias</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Nasceu de emails reais</strong></td>
+<td>Não foi escrito para publicar — foi escrito para servir</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>11 pilares, não capítulos</strong></td>
+<td>Sistema integrado, não colecção de textos</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Experiência, não teoria</strong></td>
+<td>Cada inspiração vem de algo vivido pelo autor</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Modularidade digital</strong></td>
+<td>Cada dia é uma unidade autónoma — QR, áudio, chatbot</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Proposta de Valor Única (UVP)</h3>
+<p><strong>Para o leitor:</strong></p>
+<blockquote>
+<p>&quot;O combustível diário que faltava entre a tua motivação e os teus resultados.&quot;</p>
+</blockquote>
+<p><strong>Para o ecossistema:</strong></p>
+<blockquote>
+<p>&quot;A porta de entrada para a jornada milionária — do livro ao mastermind, sem saltar degraus.&quot;</p>
+</blockquote>
+<p><strong>Para o mercado:</strong></p>
+<blockquote>
+<p>&quot;O primeiro livro português que é mais do que um livro — é um sistema vivo de 366 experiências.&quot;</p>
+</blockquote>
+<hr>
+<hr>
+</div>
+      </section>
+    
+      <section id="sec-05" class="content-section" data-block="estrategia">
+        <div class="section-tag">05 // BRANDSCRIPT</div>
+        <h2 class="section-title">BRANDSCRIPT</h2>
+        <div class="section-body"><hr>
+<h3>Framework StoryBrand (Donald Miller)</h3>
+<p>O BrandScript posiciona o <strong>leitor como herói</strong> e o <strong>Manuel Manero como guia</strong>. O livro é a ferramenta que o guia entrega ao herói para vencer.</p>
+<hr>
+<h3>1. O Herói</h3>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Perfil</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Quem é</strong></td>
+<td>Empreendedor, coach, consultor, líder (25-50 anos)</td>
+</tr>
+<tr>
+<td><strong>O que quer</strong></td>
+<td>Viver uma vida com propósito, presença, resultados — &quot;vida milionária&quot;</td>
+</tr>
+<tr>
+<td><strong>Linguagem interna</strong></td>
+<td>&quot;Sei que posso mais, mas falta-me consistência e direcção&quot;</td>
+</tr>
+<tr>
+<td><strong>Estado actual</strong></td>
+<td>Tem ambição, tem conhecimento, mas falta-lhe combustível diário</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>2. O Problema</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>O Problema</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Externo</strong></td>
+<td>Não existe um sistema diário prático para manter o foco e a inspiração ao longo de um ano inteiro</td>
+</tr>
+<tr>
+<td><strong>Interno</strong></td>
+<td>&quot;Começo com força, mas perco o ritmo. Não consigo manter a consistência.&quot;</td>
+</tr>
+<tr>
+<td><strong>Filosófico</strong></td>
+<td>Ninguém deveria ter de escolher entre uma vida com propósito e uma vida com resultados</td>
+</tr>
+<tr>
+<td><strong>O Vilão</strong></td>
+<td>A inconsistência — o inimigo silencioso que mata mais sonhos do que qualquer fracasso</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>3. O Guia</h3>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Manuel Manero</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Empatia</strong></td>
+<td>&quot;Eu também perdi o ritmo. Eu também duvidei. Por isso comecei a escrever para mim.&quot;</td>
+</tr>
+<tr>
+<td><strong>Autoridade</strong></td>
+<td>15+ anos. 10.000+ impactados. 4 livros. 500+ emails diários consecutivos. 4 programas activos.</td>
+</tr>
+<tr>
+<td><strong>Prova</strong></td>
+<td>O livro é a prova viva — nasceu de emails reais que o Manuel escreveu todos os dias desde Out/2023</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>4. O Plano</h3>
+<table>
+<thead>
+<tr>
+<th>Passo</th>
+<th>Acção</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. Compra o livro</strong></td>
+<td>Adquire na Feira do Livro, online ou via pré-venda</td>
+<td>Tens o sistema nas mãos</td>
+</tr>
+<tr>
+<td><strong>2. Lê um dia de cada vez</strong></td>
+<td>Cada manhã, abre na página do dia</td>
+<td>Recebes o combustível para esse dia</td>
+</tr>
+<tr>
+<td><strong>3. Aplica o pilar</strong></td>
+<td>Identifica qual dos 11 pilares está em jogo</td>
+<td>Constróis acção com intenção</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>5. A Chamada à Acção</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>CTA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Directa</strong></td>
+<td>&quot;Reserva o teu exemplar&quot; / &quot;Garante o teu Ano Milionário&quot;</td>
+</tr>
+<tr>
+<td><strong>Transitória</strong></td>
+<td>&quot;Recebe a inspiração do Dia 1 — grátis&quot; (lead magnet)</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>6. O Sucesso</h3>
+<blockquote>
+<p>O herói termina o ano com mais clareza, mais resultados e mais presença do que qualquer ano anterior. Não porque um livro lhe deu respostas — mas porque lhe deu o combustível diário para encontrar as suas próprias.</p>
+</blockquote>
+<p><strong>Transformação do herói:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Antes</th>
+<th>Depois</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Começa e não termina</td>
+<td>Tem um sistema de 366 dias que o mantém em movimento</td>
+</tr>
+<tr>
+<td>Falta de direcção</td>
+<td>11 pilares como bússola para decisões</td>
+</tr>
+<tr>
+<td>Isolado na jornada</td>
+<td>Parte de uma comunidade de construtores de vida milionária</td>
+</tr>
+<tr>
+<td>Motivação intermitente</td>
+<td>Inspiração como rotina — não como excepção</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>7. O Fracasso</h3>
+<blockquote>
+<p>Se o herói não agir, continuará a começar anos com ambição e a terminá-los com a mesma frustração. A inconsistência não é dramática — é silenciosa. E o maior risco é normalizá-la.</p>
+</blockquote>
+<hr>
+<h3>BrandScript — Versão Condensada (elevator pitch)</h3>
+<blockquote>
+<p><strong>&quot;A maioria dos empreendedores sabe o que quer, mas perde o ritmo. O Livro do Ano Milionário dá-te 366 doses de inspiração — uma por dia — baseadas nos 11 pilares que Manuel Manero usou para construir a sua própria vida milionária. Não é teoria. É combustível. Reserva o teu exemplar na Feira do Livro de Lisboa.&quot;</strong></p>
+</blockquote>
+<hr>
+<hr>
+</div>
+      </section>
+    
+      <section id="sec-06" class="content-section" data-block="estrategia">
+        <div class="section-tag">06 // TRUELINES</div>
+        <h2 class="section-title">TRUELINES</h2>
+        <div class="section-body"><hr>
+<h3>O Que São Truelines</h3>
+<p>Truelines são as frases-verdade que definem a marca. Não são slogans publicitários — são declarações internas que orientam TODA a comunicação. Cada peça de copy, cada post, cada email, cada interacção deve poder ser rastreada a uma trueline.</p>
+<hr>
+<h3>As 7 Truelines</h3>
+<hr>
+<h4>TL-01: A Verdade Sobre Inspiração</h4>
+<blockquote>
+<p><strong>&quot;Inspiração é oxigénio — vem de fora e garante a vida.&quot;</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Quando Aplicar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Copy principal</td>
+<td>Headlines, abertura de emails, primeira impressão</td>
+</tr>
+<tr>
+<td>Redes sociais</td>
+<td>Posts que explicam o conceito do livro</td>
+</tr>
+<tr>
+<td>Pitch verbal</td>
+<td>Quando o Manuel apresenta o livro ao vivo</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>TL-02: A Verdade Sobre Motivação</h4>
+<blockquote>
+<p><strong>&quot;Motivação é motivo + acção. Se tens o motivo, o livro dá-te a acção.&quot;</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Quando Aplicar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Email sequence</td>
+<td>Emails para leads que ainda não compraram</td>
+</tr>
+<tr>
+<td>Contracapa</td>
+<td>Complementar a sinopse</td>
+</tr>
+<tr>
+<td>Apresentações</td>
+<td>Keynotes e palestras do Manuel</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>TL-03: A Verdade Sobre Consistência</h4>
+<blockquote>
+<p><strong>&quot;366 dias. Sem excepções. Sem atalhos. Porque anos milionários não saltam dias.&quot;</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Quando Aplicar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Urgência</td>
+<td>Countdown, pré-venda, escassez real</td>
+</tr>
+<tr>
+<td>Diferenciação</td>
+<td>Quando comparado com outros livros</td>
+</tr>
+<tr>
+<td>Comunidade</td>
+<td>Desafios de leitura, streaks, gamificação</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>TL-04: A Verdade Sobre o Autor</h4>
+<blockquote>
+<p><strong>&quot;Escrevo para mim primeiro. Depois para quem partilha a mesma visão.&quot;</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Quando Aplicar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Autenticidade</td>
+<td>Bio do autor, press kit, entrevistas</td>
+</tr>
+<tr>
+<td>Email marketing</td>
+<td>Tom pessoal, vulnerabilidade calibrada</td>
+</tr>
+<tr>
+<td>Redes sociais</td>
+<td>Bastidores, histórias de origem</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>TL-05: A Verdade Sobre Riqueza</h4>
+<blockquote>
+<p><strong>&quot;Vida milionária é propósito, presença, sentido, significado e bons resultados.&quot;</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Quando Aplicar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Posicionamento</td>
+<td>Sempre que &quot;milionário&quot; possa ser mal interpretado</td>
+</tr>
+<tr>
+<td>Valores</td>
+<td>Comunicação de marca, about page, FAQs</td>
+</tr>
+<tr>
+<td>Funil</td>
+<td>Transição do livro para programas (PRIME, MASTERY)</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>TL-06: A Verdade Sobre os 11 Pilares</h4>
+<blockquote>
+<p><strong>&quot;Não são capítulos. São pilares. A diferença é que pilares sustentam — capítulos acabam.&quot;</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Quando Aplicar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Explicação do livro</td>
+<td>Landing page, descrição de produto</td>
+</tr>
+<tr>
+<td>Upsell</td>
+<td>Transição para &quot;Masterclass dos 11 Pilares&quot;</td>
+</tr>
+<tr>
+<td>Chatbot IA</td>
+<td>Introdução ao assistente dos pilares</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>TL-07: A Verdade Sobre o Começo</h4>
+<blockquote>
+<p><strong>&quot;O teu ano milionário não começa em Janeiro. Começa quando decides que começa.&quot;</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Quando Aplicar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CTA principal</td>
+<td>Botões, banners, call-to-action</td>
+</tr>
+<tr>
+<td>Lançamento</td>
+<td>Toda a campanha pré e pós-Feira</td>
+</tr>
+<tr>
+<td>Sazonalidade</td>
+<td>Neutralizar o argumento &quot;espero pelo início do ano&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Mapa de Truelines por Fase</h3>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Truelines Primárias</th>
+<th>Truelines Secundárias</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Pré-lançamento</strong> (Abril-Maio)</td>
+<td>TL-07, TL-01</td>
+<td>TL-04</td>
+</tr>
+<tr>
+<td><strong>Lançamento / Feira</strong> (Maio-Junho)</td>
+<td>TL-03, TL-05</td>
+<td>TL-06, TL-02</td>
+</tr>
+<tr>
+<td><strong>Pós-lançamento</strong> (Julho+)</td>
+<td>TL-05, TL-06</td>
+<td>TL-01, TL-02</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Regra de Uso</h3>
+<p>Toda peça de comunicação deve conter pelo menos 1 trueline (explícita ou implícita). Se uma peça de copy não pode ser rastreada a nenhuma trueline, essa peça não deve existir.</p>
+<hr>
+<hr>
+
+    <div class="truelines-grid">
+      
+        <div class="trueline-card glass-gold-card">
+          <div class="trueline-id">TL-01</div>
+          <div class="trueline-label">A Verdade Sobre Inspiração</div>
+          <blockquote class="trueline-quote">"Inspiração é oxigénio — vem de fora e garante a vida."</blockquote>
+        </div>
+      
+        <div class="trueline-card glass-gold-card">
+          <div class="trueline-id">TL-02</div>
+          <div class="trueline-label">A Verdade Sobre Motivação</div>
+          <blockquote class="trueline-quote">"Motivação é motivo + acção. Se tens o motivo, o livro dá-te a acção."</blockquote>
+        </div>
+      
+        <div class="trueline-card glass-gold-card">
+          <div class="trueline-id">TL-03</div>
+          <div class="trueline-label">A Verdade Sobre Consistência</div>
+          <blockquote class="trueline-quote">"366 dias. Sem excepções. Sem atalhos. Porque anos milionários não saltam dias."</blockquote>
+        </div>
+      
+        <div class="trueline-card glass-gold-card">
+          <div class="trueline-id">TL-04</div>
+          <div class="trueline-label">A Verdade Sobre o Autor</div>
+          <blockquote class="trueline-quote">"Escrevo para mim primeiro. Depois para quem partilha a mesma visão."</blockquote>
+        </div>
+      
+        <div class="trueline-card glass-gold-card">
+          <div class="trueline-id">TL-05</div>
+          <div class="trueline-label">A Verdade Sobre Riqueza</div>
+          <blockquote class="trueline-quote">"Vida milionária é propósito, presença, sentido, significado e bons resultados."</blockquote>
+        </div>
+      
+        <div class="trueline-card glass-gold-card">
+          <div class="trueline-id">TL-06</div>
+          <div class="trueline-label">A Verdade Sobre os 11 Pilares</div>
+          <blockquote class="trueline-quote">"Não são capítulos. São pilares. A diferença é que pilares sustentam — capítulos acabam."</blockquote>
+        </div>
+      
+        <div class="trueline-card glass-gold-card">
+          <div class="trueline-id">TL-07</div>
+          <div class="trueline-label">A Verdade Sobre o Começo</div>
+          <blockquote class="trueline-quote">"O teu ano milionário não começa em Janeiro. Começa quando decides que começa."</blockquote>
+        </div>
+      
+    </div>
+  </div>
+      </section>
+    <div id="block-identidade-verbal" class="block-anchor"></div>
+      <section id="sec-07" class="content-section" data-block="identidade-verbal">
+        <div class="section-tag">07 // NAMING</div>
+        <h2 class="section-title">NAMING</h2>
+        <div class="section-body"><hr>
+<h3>Anatomia do Nome</h3>
+<div class="ascii-diagram">"O Livro do Ano Milionário"
+  |    |      |      |
+  |    |      |      +-- MILIONÁRIO: não dinheiro — vida plena, abundante
+  |    |      +-- ANO: 366 dias, ciclo completo, compromisso temporal
+  |    +-- LIVRO: formato físico, tangível, acessível
+  +-- O: artigo definido — não é "um" livro, é "O" livro (unicidade)</div>
+
+<hr>
+<h3>Porque Funciona</h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Função Estratégica</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>&quot;O&quot;</strong> (artigo definido)</td>
+<td>Cria unicidade. Não é um livro qualquer — é O livro. Autoridade implícita.</td>
+</tr>
+<tr>
+<td><strong>&quot;Livro&quot;</strong></td>
+<td>Formato claro. Não é um curso, não é uma app. É um livro — acessível, democrático, a 16 EUR.</td>
+</tr>
+<tr>
+<td><strong>&quot;do Ano&quot;</strong></td>
+<td>Temporal e ambicioso. Implica compromisso de 12 meses. Cria expectativa de transformação.</td>
+</tr>
+<tr>
+<td><strong>&quot;Milionário&quot;</strong></td>
+<td>Palavra-gancho. Atrai atenção. Mas o significado é redefinido — vida milionária, não conta bancária.</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Variantes Aprovadas de Uso</h3>
+<table>
+<thead>
+<tr>
+<th>Contexto</th>
+<th>Variante</th>
+<th>Quando Utilizar</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Nome completo</strong></td>
+<td>O Livro do Ano Milionário</td>
+<td>Títulos, capas, documentos oficiais, press</td>
+</tr>
+<tr>
+<td><strong>Abreviatura editorial</strong></td>
+<td>OLAM</td>
+<td>Documentos internos, códigos de referência</td>
+</tr>
+<tr>
+<td><strong>Forma coloquial</strong></td>
+<td>&quot;O Ano Milionário&quot;</td>
+<td>Redes sociais, conversas, podcasts</td>
+</tr>
+<tr>
+<td><strong>Forma curta</strong></td>
+<td>&quot;Ano Milionário&quot;</td>
+<td>Hashtags (#AnoMilionario), tags</td>
+</tr>
+<tr>
+<td><strong>Referência do autor</strong></td>
+<td>&quot;o meu livro de inspirações&quot;</td>
+<td>Quando o Manuel fala na 1.a pessoa</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Variantes Proibidas</h3>
+<table>
+<thead>
+<tr>
+<th>Variante Proibida</th>
+<th>Razão</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Livro Milionário&quot;</td>
+<td>Confunde com o 1.o livro (&quot;O Livro do Milionário&quot;)</td>
+</tr>
+<tr>
+<td>&quot;O Ano&quot;</td>
+<td>Demasiado genérico, perde identidade</td>
+</tr>
+<tr>
+<td>&quot;Manual do Milionário&quot;</td>
+<td>Trocadilho com o nome do autor — evitar</td>
+</tr>
+<tr>
+<td>&quot;365 Inspirações&quot;</td>
+<td>São 366, não 365. E ignora a marca</td>
+</tr>
+<tr>
+<td>&quot;Livro de Auto-Ajuda&quot;</td>
+<td>Nunca categorizar assim — é um livro de inspiração</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Ecossistema de Naming</h3>
+<p>O livro existe dentro de um ecossistema de nomes. Cada produto derivado segue a mesma lógica:</p>
+<table>
+<thead>
+<tr>
+<th>Produto</th>
+<th>Nome</th>
+<th>Lógica</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Livro físico</strong></td>
+<td>O Livro do Ano Milionário</td>
+<td>Nome principal</td>
+</tr>
+<tr>
+<td><strong>Lead magnet</strong></td>
+<td>&quot;Dia 1 — A Tua Primeira Inspiração&quot;</td>
+<td>Amostra do formato diário</td>
+</tr>
+<tr>
+<td><strong>Masterclass upsell</strong></td>
+<td>&quot;Os 11 Pilares do Ano Milionário&quot;</td>
+<td>Extensão natural do livro</td>
+</tr>
+<tr>
+<td><strong>Comunidade</strong></td>
+<td>&quot;Clube do Ano Milionário&quot;</td>
+<td>Pertença + continuidade</td>
+</tr>
+<tr>
+<td><strong>Chatbot IA</strong></td>
+<td>&quot;Coach Milionário&quot;</td>
+<td>Assistente pessoal dos pilares</td>
+</tr>
+<tr>
+<td><strong>App companion</strong></td>
+<td>&quot;365 Milionário&quot;</td>
+<td>Tracking diário digital</td>
+</tr>
+<tr>
+<td><strong>Desafio redes</strong></td>
+<td>&quot;#AnoMilionario&quot;</td>
+<td>Hashtag unificadora</td>
+</tr>
+<tr>
+<td><strong>Subscrição</strong></td>
+<td>&quot;Inspiração Milionária&quot;</td>
+<td>Conteúdo recorrente</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Taglines Aprovadas</h3>
+<table>
+<thead>
+<tr>
+<th>Tagline</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>&quot;366 doses de inspiração para uma vida milionária.&quot;</strong></td>
+<td>Principal — capa, landing, materiais</td>
+</tr>
+<tr>
+<td><strong>&quot;O teu ano milionário começa hoje.&quot;</strong></td>
+<td>CTA, campanhas, lançamento</td>
+</tr>
+<tr>
+<td><strong>&quot;Inspiração é oxigénio.&quot;</strong></td>
+<td>Conceitual — posts, aberturas de email</td>
+</tr>
+<tr>
+<td><strong>&quot;Um dia de cada vez. 366 vezes.&quot;</strong></td>
+<td>Compromisso — countdown, desafios</td>
+</tr>
+<tr>
+<td><strong>&quot;Porque anos milionários não saltam dias.&quot;</strong></td>
+<td>Diferenciação — porque 366 e não 365</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+</div>
+      </section>
+    
+      <section id="sec-08" class="content-section" data-block="identidade-verbal">
+        <div class="section-tag">08 // VOCABULÁRIO</div>
+        <h2 class="section-title">VOCABULÁRIO</h2>
+        <div class="section-body"><hr>
+<h3>Palavras da Marca</h3>
+<p>O vocabulário define o território verbal. Estas são as palavras que a marca UTILIZA e as que NUNCA utiliza.</p>
+<hr>
+<h3>Território Verbal — Palavras Centrais</h3>
+<table>
+<thead>
+<tr>
+<th>Palavra</th>
+<th>Porque Pertence</th>
+<th>Frequência</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Inspiração</strong></td>
+<td>Conceito nuclear do livro</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Combustível</strong></td>
+<td>Metáfora central — inspiração como oxigénio</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Pilares</strong></td>
+<td>Estrutura dos 11 princípios</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Construir</strong></td>
+<td>Acção progressiva, não instantânea</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Milionária/o</strong></td>
+<td>Identidade da marca (redefinida)</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Abundância</strong></td>
+<td>Alternativa a &quot;riqueza&quot; — mais ampla</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Compromisso</strong></td>
+<td>Origem do livro + promessa ao leitor</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Jornada</strong></td>
+<td>Metáfora do processo, não do destino</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Presença</strong></td>
+<td>Pilar filosófico — estar no agora</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Propósito</strong></td>
+<td>Pilar filosófico — o &quot;porquê&quot;</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Soberania</strong></td>
+<td>Poder sobre a própria vida</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td><strong>Intenção</strong></td>
+<td>Acção consciente vs automática</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td><strong>Leveza</strong></td>
+<td>O que a inspiração traz nos dias difíceis</td>
+<td>Baixa</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Palavras Proibidas</h3>
+<table>
+<thead>
+<tr>
+<th>Palavra Proibida</th>
+<th>Alternativa Aprovada</th>
+<th>Razão</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Fácil</strong></td>
+<td>&quot;Simples&quot; ou &quot;praticável&quot;</td>
+<td>Nada que valha a pena é fácil</td>
+</tr>
+<tr>
+<td><strong>Rápido</strong></td>
+<td>&quot;Consistente&quot; ou &quot;progressivo&quot;</td>
+<td>366 dias é o oposto de rápido</td>
+</tr>
+<tr>
+<td><strong>Garantido</strong></td>
+<td>&quot;Comprovado&quot; ou &quot;testado&quot;</td>
+<td>Ninguém garante resultados — o trabalho é do leitor</td>
+</tr>
+<tr>
+<td><strong>Segredo</strong></td>
+<td>&quot;Princípio&quot; ou &quot;pilar&quot;</td>
+<td>Não há segredos — há disciplina</td>
+</tr>
+<tr>
+<td><strong>Hack</strong></td>
+<td>&quot;Prática&quot; ou &quot;hábito&quot;</td>
+<td>O livro é anti-atalhos</td>
+</tr>
+<tr>
+<td><strong>Revolucionário</strong></td>
+<td>&quot;Fundamentado&quot; ou &quot;estruturado&quot;</td>
+<td>Revoluções são barulhentas. Pilares são silenciosos</td>
+</tr>
+<tr>
+<td><strong>Curso</strong></td>
+<td>&quot;Livro&quot; / &quot;sistema&quot; / &quot;programa&quot;</td>
+<td>O livro não é um curso</td>
+</tr>
+<tr>
+<td><strong>Automático</strong></td>
+<td>&quot;Intencional&quot; ou &quot;diário&quot;</td>
+<td>Nada neste sistema é automático — é escolha</td>
+</tr>
+<tr>
+<td><strong>Grátis</strong></td>
+<td>&quot;Cortesia&quot; ou &quot;oferta&quot;</td>
+<td>Mesmo quando é grátis, tem valor</td>
+</tr>
+<tr>
+<td><strong>Compra agora</strong></td>
+<td>&quot;Reserva o teu&quot; / &quot;Garante o teu&quot;</td>
+<td>Tom de pertença, não de transacção</td>
+</tr>
+<tr>
+<td><strong>Você</strong></td>
+<td>&quot;Tu&quot;</td>
+<td>PT-PT, proximidade, tom directo</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Tom de Voz — Espectro por Canal</h3>
+<table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>Tom</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Email diário</strong></td>
+<td>Íntimo, directo, como conversa com amigo experiente</td>
+<td>&quot;Hoje quero partilhar contigo algo que me aconteceu na semana passada...&quot;</td>
+</tr>
+<tr>
+<td><strong>Landing page</strong></td>
+<td>Confiante, aspiracional, sem exagero</td>
+<td>&quot;366 inspirações para o teu ano mais extraordinário.&quot;</td>
+</tr>
+<tr>
+<td><strong>Redes sociais</strong></td>
+<td>Acessível, visual, com gancho</td>
+<td>&quot;Dia 47: A diferença entre quem constrói e quem sonha é uma única coisa...&quot;</td>
+</tr>
+<tr>
+<td><strong>Press kit</strong></td>
+<td>Profissional, factual, terceira pessoa</td>
+<td>&quot;Manuel Manero, autor de 4 livros e mentor de +10.000 pessoas...&quot;</td>
+</tr>
+<tr>
+<td><strong>Feira do Livro</strong></td>
+<td>Caloroso, presente, presencial</td>
+<td>&quot;Qual é o pilar que mais precisas hoje? Deixa-me mostrar-te.&quot;</td>
+</tr>
+<tr>
+<td><strong>Email de venda</strong></td>
+<td>Urgente mas honesto, sem pressão falsa</td>
+<td>&quot;Faltam 3 dias para a Feira. Se queres garantir o teu exemplar assinado...&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Expressões-Assinatura</h3>
+<p>Frases que devem ser utilizadas recorrentemente para criar reconhecimento verbal:</p>
+<table>
+<thead>
+<tr>
+<th>Expressão</th>
+<th>Contexto</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Um dia de cada vez&quot;</td>
+<td>Qualquer referência ao formato diário</td>
+</tr>
+<tr>
+<td>&quot;O teu ano milionário&quot;</td>
+<td>Sempre que se fala do leitor + livro</td>
+</tr>
+<tr>
+<td>&quot;Inspiração é combustível&quot;</td>
+<td>Explicação do conceito</td>
+</tr>
+<tr>
+<td>&quot;Não é teoria — é experiência&quot;</td>
+<td>Diferenciação do autor</td>
+</tr>
+<tr>
+<td>&quot;Começar hoje&quot;</td>
+<td>CTA e urgência real</td>
+</tr>
+<tr>
+<td>&quot;Os 11 pilares&quot;</td>
+<td>Referência à estrutura</td>
+</tr>
+<tr>
+<td>&quot;366, não 365&quot;</td>
+<td>Diferenciação numérica</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Regras de Redacção</h3>
+<table>
+<thead>
+<tr>
+<th>Regra</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Língua</strong></td>
+<td>Sempre PT-PT. Nunca PT-BR</td>
+</tr>
+<tr>
+<td><strong>Pessoa</strong></td>
+<td>2.a pessoa do singular (&quot;tu&quot;) em comunicação directa</td>
+</tr>
+<tr>
+<td><strong>Frases</strong></td>
+<td>Curtas. Máxima de 20 palavras. Ponto final é melhor que vírgula</td>
+</tr>
+<tr>
+<td><strong>Parágrafos</strong></td>
+<td>Máximo 3 frases por parágrafo em email/redes</td>
+</tr>
+<tr>
+<td><strong>Números</strong></td>
+<td>Sempre em dígitos (366, 11, 15 anos) — nunca por extenso</td>
+</tr>
+<tr>
+<td><strong>&quot;Milionário&quot;</strong></td>
+<td>Sempre com definição implícita de &quot;vida plena&quot; — nunca isolado como &quot;rico&quot;</td>
+</tr>
+<tr>
+<td><strong>Pontuação</strong></td>
+<td>Utilizar travessão (—) para pausas dramáticas. Evitar reticências (...)</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+</div>
+      </section>
+    <div id="block-jornada" class="block-anchor"></div>
+      <section id="sec-09" class="content-section" data-block="jornada">
+        <div class="section-tag">09 // JORNADA DO HERÓI</div>
+        <h2 class="section-title">JORNADA DO HERÓI</h2>
+        <div class="section-body"><hr>
+<h3>O Framework</h3>
+<p>A jornada do leitor segue a estrutura clássica do Herói (Joseph Campbell) adaptada ao ecossistema do livro:</p>
+<div class="ascii-diagram">___________
+                       /           \
+                      /  5. PROVA   \
+                     /   (366 dias)  \
+                    /                 \
+        4. GUIA  /                     \ 6. RECOMPENSA
+       (Manuel) /                       \ (vida milionária)
+               /                         \
+    3. CHAMADA                             7. REGRESSO
+    (descobre                              (partilha com
+     o livro)                               a comunidade)
+             \                             /
+              \                           /
+    2. DÚVIDA  \                         / 8. MESTRE
+    (falta de   \                       /  (torna-se
+     consistência)\     1. MUNDO      /    referência)
+                   \   COMUM        /
+                    \_____________/
+                    (rotina, potencial
+                     não realizado)</div>
+
+<hr>
+<h3>As 8 Etapas em Detalhe</h3>
+<hr>
+<h4>Etapa 1: O Mundo Comum</h4>
+<blockquote>
+<p>O herói vive a sua rotina. Tem ambição, tem conhecimento, tem planos. Mas há um padrão que se repete: começa com força, perde o ritmo, recomeçar torna-se cada vez mais difícil.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Emoção</th>
+<th>Comportamento</th>
+<th>Frase interna</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Frustração contida</td>
+<td>Consome conteúdo mas não aplica</td>
+<td>&quot;Mais um ano igual ao anterior&quot;</td>
+</tr>
+<tr>
+<td>Potencial não realizado</td>
+<td>Sabe que pode mais</td>
+<td>&quot;Falta-me algo, mas não sei o quê&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>Etapa 2: A Dúvida Silenciosa</h4>
+<blockquote>
+<p>O herói começa a questionar se o problema é ele. &quot;Talvez eu não tenha o que é preciso.&quot; A inconsistência torna-se identidade em vez de obstáculo.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Emoção</th>
+<th>Perigo</th>
+<th>Ponto de contacto da marca</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Auto-dúvida</td>
+<td>Normalizar a estagnação</td>
+<td>Post de rede social que nomeia este sentimento</td>
+</tr>
+<tr>
+<td>Resignação</td>
+<td>Parar de tentar</td>
+<td>Email que mostra que o Manuel sentiu o mesmo</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>Etapa 3: A Chamada</h4>
+<blockquote>
+<p>O herói descobre &quot;O Livro do Ano Milionário&quot;. Não como mais um livro — mas como um sistema. 366 dias. 11 pilares. Um compromisso. Algo nele reconhece: &quot;Isto é diferente.&quot;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>Canal</th>
+<th>Mensagem</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Post com citação do livro</td>
+<td>Instagram</td>
+<td>A citação ressoa — guarda, partilha</td>
+</tr>
+<tr>
+<td>Email de pré-lançamento</td>
+<td>Lista existente</td>
+<td>&quot;Dia 1 — A tua primeira inspiração&quot; (grátis)</td>
+</tr>
+<tr>
+<td>Feira do Livro</td>
+<td>Presencial</td>
+<td>Vê o stand, pega no livro, lê a primeira página</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>Etapa 4: O Guia Aparece</h4>
+<blockquote>
+<p>Manuel Manero não se apresenta como guru. Apresenta-se como alguém que fez. &quot;Eu comecei a escrever para mim. Todos os dias. Desde Outubro de 2023. E isto é o que aprendi.&quot;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Elemento do Guia</th>
+<th>Manifestação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Empatia</strong></td>
+<td>&quot;Eu também perdi o ritmo. Por isso criei este sistema.&quot;</td>
+</tr>
+<tr>
+<td><strong>Autoridade</strong></td>
+<td>500+ emails diários. 4 livros. 15+ anos. 10.000+ impactados.</td>
+</tr>
+<tr>
+<td><strong>Plano claro</strong></td>
+<td>&quot;1 dia. 1 página. 1 acção. 366 vezes.&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>Etapa 5: A Prova (os 366 Dias)</h4>
+<blockquote>
+<p>O herói lê. Um dia de cada vez. Os primeiros 30 dias são de curiosidade. Os dias 31-90 são de hábito. Os dias 91-180 são de transformação. Os dias 181-366 são de identidade.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Dias</th>
+<th>Estado do Herói</th>
+<th>Suporte da Marca</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Curiosidade</strong></td>
+<td>1-30</td>
+<td>&quot;Isto é interessante&quot;</td>
+<td>Emails pós-compra (11 pilares)</td>
+</tr>
+<tr>
+<td><strong>Hábito</strong></td>
+<td>31-90</td>
+<td>&quot;Já faz parte da minha rotina&quot;</td>
+<td>Notificações da app / comunidade</td>
+</tr>
+<tr>
+<td><strong>Transformação</strong></td>
+<td>91-180</td>
+<td>&quot;Estou a mudar de verdade&quot;</td>
+<td>Partilha na comunidade, testemunho</td>
+</tr>
+<tr>
+<td><strong>Identidade</strong></td>
+<td>181-366</td>
+<td>&quot;Eu SOU alguém que lê todos os dias&quot;</td>
+<td>Badge, certificado, convite VIP</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>Etapa 6: A Recompensa</h4>
+<blockquote>
+<p>O herói não se torna &quot;milionário&quot; no sentido financeiro (embora possa). Torna-se alguém com clareza, consistência, propósito e resultados. A vida milionária é o que ele vive — não o que ele tem.</p>
+</blockquote>
+<hr>
+<h4>Etapa 7: O Regresso</h4>
+<blockquote>
+<p>O herói regressa à sua comunidade como referência. Partilha o livro. Recomenda. Torna-se embaixador natural. &quot;Tens de ler isto.&quot;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Acção</th>
+<th>Canal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Partilha orgânica</td>
+<td>Redes sociais (#AnoMilionario)</td>
+</tr>
+<tr>
+<td>Oferece o livro</td>
+<td>Presente a alguém que precisa</td>
+</tr>
+<tr>
+<td>Torna-se embaixador</td>
+<td>Programa formal de embaixadores</td>
+</tr>
+</tbody></table>
+<hr>
+<h4>Etapa 8: O Mestre</h4>
+<blockquote>
+<p>O herói que completou os 366 dias não é o mesmo. É agora alguém que pode guiar outros. O ciclo recomeça — mas desta vez, como mentor.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Acção</th>
+<th>Canal</th>
+<th>Upsell Natural</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Entra na Comunidade Milionária</td>
+<td>Comunidade paga</td>
+<td>19,90 EUR/mês</td>
+</tr>
+<tr>
+<td>Candidata-se ao PRIME</td>
+<td>Programa</td>
+<td>Investimento definido</td>
+</tr>
+<tr>
+<td>Procura o MASTERY</td>
+<td>Programa avançado</td>
+<td>High-ticket</td>
+</tr>
+<tr>
+<td>Solicita Mentoria Privada</td>
+<td>1:1 com Manuel</td>
+<td>Premium</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Mapa da Jornada por Ponto de Contacto</h3>
+<table>
+<thead>
+<tr>
+<th>Etapa</th>
+<th>Ponto de Contacto</th>
+<th>Objectivo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1-2</td>
+<td>Redes sociais, conteúdo orgânico</td>
+<td>Criar identificação</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Landing page, anúncios, Feira</td>
+<td>Despertar desejo</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Press kit, testemunhos, bio</td>
+<td>Estabelecer confiança</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Livro, emails, app, comunidade</td>
+<td>Sustentar o compromisso</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Celebrações, badges, reconhecimento</td>
+<td>Validar a transformação</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Programa de embaixadores, social proof</td>
+<td>Amplificar organicamente</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Programas PRIME/MASTERY/Mentoria</td>
+<td>Monetizar a transformação</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+
+    <div class="journey-timeline">
+      
+        <div class="journey-stage ">
+          <div class="journey-connector">
+            <div class="journey-dot">1</div>
+            <div class="journey-line"></div>
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">O Mundo Comum</div>
+            <div class="journey-stage-desc">Rotina, potencial nao realizado. "Mais um ano igual ao anterior."</div>
+          </div>
+        </div>
+      
+        <div class="journey-stage ">
+          <div class="journey-connector">
+            <div class="journey-dot">2</div>
+            <div class="journey-line"></div>
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">A Duvida Silenciosa</div>
+            <div class="journey-stage-desc">Auto-duvida e resignacao. A inconsistencia torna-se identidade.</div>
+          </div>
+        </div>
+      
+        <div class="journey-stage ">
+          <div class="journey-connector">
+            <div class="journey-dot">3</div>
+            <div class="journey-line"></div>
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">A Chamada</div>
+            <div class="journey-stage-desc">O heroi descobre o livro. 366 dias. 11 pilares. "Isto e diferente."</div>
+          </div>
+        </div>
+      
+        <div class="journey-stage ">
+          <div class="journey-connector">
+            <div class="journey-dot">4</div>
+            <div class="journey-line"></div>
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">O Guia Aparece</div>
+            <div class="journey-stage-desc">Manuel Manero: empatia, autoridade e plano claro. "Eu fiz. Tu podes."</div>
+          </div>
+        </div>
+      
+        <div class="journey-stage ">
+          <div class="journey-connector">
+            <div class="journey-dot">5</div>
+            <div class="journey-line"></div>
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">A Prova (366 Dias)</div>
+            <div class="journey-stage-desc">Curiosidade (1-30d), Habito (31-90d), Transformacao (91-180d), Identidade (181-366d).</div>
+          </div>
+        </div>
+      
+        <div class="journey-stage ">
+          <div class="journey-connector">
+            <div class="journey-dot">6</div>
+            <div class="journey-line"></div>
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">A Recompensa</div>
+            <div class="journey-stage-desc">Clareza, consistencia, proposito e resultados. A vida milionaria.</div>
+          </div>
+        </div>
+      
+        <div class="journey-stage ">
+          <div class="journey-connector">
+            <div class="journey-dot">7</div>
+            <div class="journey-line"></div>
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">O Regresso</div>
+            <div class="journey-stage-desc">O heroi regressa como referencia. Partilha, recomenda, inspira.</div>
+          </div>
+        </div>
+      
+        <div class="journey-stage journey-stage-last">
+          <div class="journey-connector">
+            <div class="journey-dot">8</div>
+            
+          </div>
+          <div class="journey-content glass-card-sm">
+            <div class="journey-stage-name">O Mestre</div>
+            <div class="journey-stage-desc">Quem completou os 366 dias pode guiar outros. O ciclo recomeca.</div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+      </section>
+    
+      <section id="sec-10" class="content-section" data-block="jornada">
+        <div class="section-tag">10 // DEPOIMENTOS</div>
+        <h2 class="section-title">DEPOIMENTOS</h2>
+        <div class="section-body"><hr>
+<h3>Framework de Prova Social</h3>
+<p>Depoimentos não são decoração — são a prova de que a jornada do herói (secção 09) funciona. Cada depoimento deve corresponder a uma etapa da jornada.</p>
+<hr>
+<h3>Estrutura de Depoimento Aprovada</h3>
+<p>Todo depoimento utilizado na comunicação da marca deve seguir esta estrutura:</p>
+<div class="ascii-diagram">[ANTES] → [DESCOBERTA] → [TRANSFORMAÇÃO] → [RESULTADO CONCRETO]</div>
+
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Obrigatório</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Nome real</strong></td>
+<td>Sim</td>
+<td>&quot;Ana Silva&quot;</td>
+</tr>
+<tr>
+<td><strong>Função/profissão</strong></td>
+<td>Sim</td>
+<td>&quot;Mentora de Negócios&quot;</td>
+</tr>
+<tr>
+<td><strong>Antes</strong></td>
+<td>Sim</td>
+<td>&quot;Facturava 2k/mês e não sabia posicionar-me&quot;</td>
+</tr>
+<tr>
+<td><strong>Programa/produto</strong></td>
+<td>Sim</td>
+<td>&quot;Método PRIME&quot;</td>
+</tr>
+<tr>
+<td><strong>Resultado mensurável</strong></td>
+<td>Sim</td>
+<td>&quot;Passei de 2k para 15k mensais em 3 meses&quot;</td>
+</tr>
+<tr>
+<td><strong>Foto</strong></td>
+<td>Recomendado</td>
+<td>Foto profissional</td>
+</tr>
+<tr>
+<td><strong>Vídeo</strong></td>
+<td>Ideal</td>
+<td>60-90 segundos</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Depoimentos Existentes (do ecossistema Manuel Manero)</h3>
+<table>
+<thead>
+<tr>
+<th>Pessoa</th>
+<th>Programa</th>
+<th>Resultado</th>
+<th>Citação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Ana Silva</strong></td>
+<td>Método PRIME</td>
+<td>2k → 15k mensais em 3 meses</td>
+<td>&quot;O Manuel mudou completamente a forma como me posiciono.&quot;</td>
+</tr>
+<tr>
+<td><strong>João Pereira</strong></td>
+<td>Comunidade Milionária</td>
+<td>ROI inestimável na carreira</td>
+<td>&quot;A Comunidade Milionária é o melhor investimento que fiz na minha carreira.&quot;</td>
+</tr>
+<tr>
+<td><strong>Carla Rodrigues</strong></td>
+<td>Personal Branding MASTERY</td>
+<td>3x facturamento em 6 meses</td>
+<td>&quot;Em 6 meses de MASTERY tripliquei o meu facturamento e tornei-me uma referência.&quot;</td>
+</tr>
+<tr>
+<td><strong>Ricardo Santos</strong></td>
+<td>Mentoria Privada</td>
+<td>Escala para 6 dígitos</td>
+<td>&quot;A mentoria privada foi transformadora. Manuel ajudou-me a escalar para 6 dígitos.&quot;</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Depoimentos Necessários para o Livro</h3>
+<p>Para o lançamento de &quot;O Livro do Ano Milionário&quot;, precisamos de depoimentos específicos que validem o LIVRO (não os programas existentes):</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Quantidade</th>
+<th>Fonte</th>
+<th>Prazo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Beta readers</strong></td>
+<td>10-15</td>
+<td>Membros da comunidade que recebem o livro antecipado (Maio 2026)</td>
+<td>2 semanas antes da Feira</td>
+</tr>
+<tr>
+<td><strong>Embaixadores</strong></td>
+<td>50</td>
+<td>Comunidade alargada com livro antecipado</td>
+<td>1 semana antes da Feira</td>
+</tr>
+<tr>
+<td><strong>Influenciadores</strong></td>
+<td>5-10</td>
+<td>Envio de press kit + livro a personalidades do nicho</td>
+<td>Durante a Feira</td>
+</tr>
+<tr>
+<td><strong>Media</strong></td>
+<td>2-3</td>
+<td>Excertos de reviews de media/blogs</td>
+<td>Pós-Feira</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Formatos de Depoimento por Canal</h3>
+<table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>Formato</th>
+<th>Duração/Tamanho</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Landing page</strong></td>
+<td>Citação com foto e nome</td>
+<td>1-2 frases</td>
+</tr>
+<tr>
+<td><strong>Instagram Stories</strong></td>
+<td>Vídeo curto do leitor com o livro</td>
+<td>15-30 segundos</td>
+</tr>
+<tr>
+<td><strong>Instagram Feed</strong></td>
+<td>Carrossel com citação + transformação</td>
+<td>3-5 slides</td>
+</tr>
+<tr>
+<td><strong>Email sequence</strong></td>
+<td>Citação integrada no corpo do email</td>
+<td>1 parágrafo</td>
+</tr>
+<tr>
+<td><strong>YouTube</strong></td>
+<td>Vídeo testemunho editado</td>
+<td>60-90 segundos</td>
+</tr>
+<tr>
+<td><strong>Press kit</strong></td>
+<td>Citação formal com bio</td>
+<td>2-3 frases</td>
+</tr>
+<tr>
+<td><strong>Stand Feira</strong></td>
+<td>Display com QR para vídeo</td>
+<td>Loop de 30 segundos</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Perguntas para Recolha de Depoimentos</h3>
+<p>Guião para pedir depoimentos aos beta readers:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pergunta</th>
+<th>O que Captura</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>&quot;Como era a tua rotina matinal ANTES do livro?&quot;</td>
+<td>Estado anterior (antes)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&quot;O que te fez decidir ler este livro?&quot;</td>
+<td>Momento de descoberta</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&quot;Qual foi a inspiração que mais te marcou? Porquê?&quot;</td>
+<td>Conexão emocional</td>
+</tr>
+<tr>
+<td>4</td>
+<td>&quot;O que mudou nos teus dias desde que começaste a ler?&quot;</td>
+<td>Transformação prática</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&quot;Se tivesses de recomendar este livro a alguém, o que dirias?&quot;</td>
+<td>Social proof natural</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&quot;Num número de 1 a 10, como classificas o impacto do livro?&quot;</td>
+<td>Métrica quantitativa</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Métricas de Prova Social (objectivos pré-Feira)</h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Objectivo</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Beta readers com review</td>
+<td>10+</td>
+<td>Landing page, press kit</td>
+</tr>
+<tr>
+<td>Vídeos de depoimento</td>
+<td>5+</td>
+<td>Redes sociais, YouTube</td>
+</tr>
+<tr>
+<td>Avaliações escritas</td>
+<td>20+</td>
+<td>Landing page, emails</td>
+</tr>
+<tr>
+<td>Citações para press</td>
+<td>3-5</td>
+<td>Press kit, media</td>
+</tr>
+<tr>
+<td>NPS dos beta readers</td>
+<td>&gt;= 9/10</td>
+<td>Comunicação interna, proof point</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+</div>
+      </section>
+    <div id="block-identidade-visual" class="block-anchor"></div>
+      <section id="sec-11" class="content-section" data-block="identidade-visual">
+        <div class="section-tag">11 // MARCAS & CORES</div>
+        <h2 class="section-title">MARCAS & CORES</h2>
+        <div class="section-body">
+    
+      <div class="color-group">
+        <h4 class="color-group-label">Paleta Primaria</h4>
+        <div class="color-grid">
+          
+            <div class="color-swatch" style="background:#0A0A0F">
+              <div class="swatch-info swatch-light">
+                <span class="swatch-name">Onyx</span>
+                <span class="swatch-hex">#0A0A0F</span>
+                <span class="swatch-rgb">10, 10, 15</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#C9A84C">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Gold</span>
+                <span class="swatch-hex">#C9A84C</span>
+                <span class="swatch-rgb">201, 168, 76</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#F5F0E8">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Ivory</span>
+                <span class="swatch-hex">#F5F0E8</span>
+                <span class="swatch-rgb">245, 240, 232</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#1A1A24">
+              <div class="swatch-info swatch-light">
+                <span class="swatch-name">Charcoal</span>
+                <span class="swatch-hex">#1A1A24</span>
+                <span class="swatch-rgb">26, 26, 36</span>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
+    
+      <div class="color-group">
+        <h4 class="color-group-label">Paleta Secundaria</h4>
+        <div class="color-grid">
+          
+            <div class="color-swatch" style="background:#E8B94A">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Amber</span>
+                <span class="swatch-hex">#E8B94A</span>
+                <span class="swatch-rgb">232, 185, 74</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#FAF8F5">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Warm White</span>
+                <span class="swatch-hex">#FAF8F5</span>
+                <span class="swatch-rgb">250, 248, 245</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#6B6B7B">
+              <div class="swatch-info swatch-light">
+                <span class="swatch-name">Smoke</span>
+                <span class="swatch-hex">#6B6B7B</span>
+                <span class="swatch-rgb">107, 107, 123</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#12121A">
+              <div class="swatch-info swatch-light">
+                <span class="swatch-name">Midnight</span>
+                <span class="swatch-hex">#12121A</span>
+                <span class="swatch-rgb">18, 18, 26</span>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
+    
+      <div class="color-group">
+        <h4 class="color-group-label">Paleta Funcional</h4>
+        <div class="color-grid">
+          
+            <div class="color-swatch" style="background:#2ECC71">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Success</span>
+                <span class="swatch-hex">#2ECC71</span>
+                <span class="swatch-rgb">46, 204, 113</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#F39C12">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Warning</span>
+                <span class="swatch-hex">#F39C12</span>
+                <span class="swatch-rgb">243, 156, 18</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#E74C3C">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Error</span>
+                <span class="swatch-hex">#E74C3C</span>
+                <span class="swatch-rgb">231, 76, 60</span>
+              </div>
+            </div>
+          
+            <div class="color-swatch" style="background:#3498DB">
+              <div class="swatch-info swatch-dark">
+                <span class="swatch-name">Info</span>
+                <span class="swatch-hex">#3498DB</span>
+                <span class="swatch-rgb">52, 152, 219</span>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
+    <div class="color-group">
+      <h4 class="color-group-label">Gradientes Aprovados</h4>
+      <div class="gradient-grid">
+        
+          <div class="gradient-swatch">
+            <div class="gradient-preview" style="background:linear-gradient(180deg, #0A0A0F 0%, #12121A 100%)"></div>
+            <span class="gradient-name">Hero Background</span>
+          </div>
+        
+          <div class="gradient-swatch">
+            <div class="gradient-preview" style="background:linear-gradient(135deg, rgba(201, 168, 76, 0.08) 0%, rgba(201, 168, 76, 0.02) 100%)"></div>
+            <span class="gradient-name">Gold Subtle</span>
+          </div>
+        
+          <div class="gradient-swatch">
+            <div class="gradient-preview" style="background:linear-gradient(135deg, #C9A84C 0%, #E8B94A 50%, #C9A84C 100%)"></div>
+            <span class="gradient-name">Gold Text</span>
+          </div>
+        
+          <div class="gradient-swatch">
+            <div class="gradient-preview" style="background:linear-gradient(to top, rgba(10, 10, 15, 0.95) 0%, rgba(10, 10, 15, 0.4) 60%, transparent 100%)"></div>
+            <span class="gradient-name">Image Overlay</span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+      </section>
+    
+      <section id="sec-12" class="content-section" data-block="identidade-visual">
+        <div class="section-tag">12 // TIPOGRAFIA</div>
+        <h2 class="section-title">TIPOGRAFIA</h2>
+        <div class="section-body">
+    <div class="type-scale">
+      
+        <div class="type-row">
+          <span class="type-label">Display</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'Playfair Display', serif;font-size:3.2rem;font-weight:900;letter-spacing:-0.03em;color:var(--gold);line-height:1.3;">O Ano Milionario</span>
+            <span class="type-meta">3.2rem / 900 / Playfair Display</span>
+          </div>
+        </div>
+      
+        <div class="type-row">
+          <span class="type-label">H1</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'Playfair Display', serif;font-size:2.4rem;font-weight:700;letter-spacing:-0.02em;color:var(--ivory);line-height:1.3;">366 Inspiracoes Para Uma Vida Milionaria</span>
+            <span class="type-meta">2.4rem / 700 / Playfair Display</span>
+          </div>
+        </div>
+      
+        <div class="type-row">
+          <span class="type-label">H2</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'Playfair Display', serif;font-size:1.8rem;font-weight:700;letter-spacing:-0.01em;color:var(--ivory);line-height:1.3;">Os 11 Pilares do Ano Milionario</span>
+            <span class="type-meta">1.8rem / 700 / Playfair Display</span>
+          </div>
+        </div>
+      
+        <div class="type-row">
+          <span class="type-label">H3</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'Inter', sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:0;color:var(--ivory);line-height:1.3;">Principios do Manifesto</span>
+            <span class="type-meta">1.4rem / 700 / Inter</span>
+          </div>
+        </div>
+      
+        <div class="type-row">
+          <span class="type-label">H4</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'Inter', sans-serif;font-size:1.15rem;font-weight:600;letter-spacing:0;color:var(--ivory);line-height:1.3;">Expressoes-Assinatura</span>
+            <span class="type-meta">1.15rem / 600 / Inter</span>
+          </div>
+        </div>
+      
+        <div class="type-row">
+          <span class="type-label">Body</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'Inter', sans-serif;font-size:1rem;font-weight:400;letter-spacing:0;color:var(--ivory);line-height:1.3;">Acredito que o sucesso na vida de cada um de nos, para alem do equilibrio de diversos factores, carece essencialmente de 2 ingredientes: inspiracao e motivacao.</span>
+            <span class="type-meta">1rem / 400 / Inter / line-height 1.75</span>
+          </div>
+        </div>
+      
+        <div class="type-row">
+          <span class="type-label">Number</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'JetBrains Mono', monospace;font-size:2.4rem;font-weight:700;letter-spacing:-0.02em;color:var(--gold);line-height:1.3;">366</span>
+            <span class="type-meta">2.4rem / 700 / JetBrains Mono</span>
+          </div>
+        </div>
+      
+        <div class="type-row">
+          <span class="type-label">Badge</span>
+          <div class="type-sample-wrap">
+            <span class="type-sample" style="font-family:'JetBrains Mono', monospace;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:var(--gold);line-height:1.3;text-transform:uppercase;">11 PILARES</span>
+            <span class="type-meta">0.65rem / 700 / JetBrains Mono / uppercase</span>
+          </div>
+        </div>
+      
+    </div>
+    <div class="type-families">
+      <h4 class="color-group-label">Familias Tipograficas</h4>
+      <div class="type-families-grid">
+        <div class="type-family-card glass-card-sm">
+          <span class="type-family-name" style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold)">Playfair Display</span>
+          <span class="type-family-role">Titulos, headlines, display</span>
+          <span class="type-family-weights">400 / 700 / 900</span>
+        </div>
+        <div class="type-family-card glass-card-sm">
+          <span class="type-family-name" style="font-family:'Inter',sans-serif;font-size:1.4rem;font-weight:600;color:var(--ivory)">Inter</span>
+          <span class="type-family-role">Body, UI, navegacao</span>
+          <span class="type-family-weights">400 / 500 / 600 / 700</span>
+        </div>
+        <div class="type-family-card glass-card-sm">
+          <span class="type-family-name" style="font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:700;color:var(--gold)">JetBrains Mono</span>
+          <span class="type-family-role">Numeros, badges, dados tecnicos</span>
+          <span class="type-family-weights">400 / 700</span>
+        </div>
+      </div>
+    </div>
+  </div>
+      </section>
+    
+      <section id="sec-13" class="content-section" data-block="identidade-visual">
+        <div class="section-tag">13 // GLASSMORPHISM</div>
+        <h2 class="section-title">GLASSMORPHISM</h2>
+        <div class="section-body">
+    <div class="glass-demo-grid">
+      
+        <div class="glass-demo-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:1.5rem;box-shadow:none;position:relative;overflow:hidden;">
+          <div class="glass-light-bar"></div>
+          <div class="glass-label">NIVEL 1</div>
+          <div class="glass-name">Superfície</div>
+          <div class="glass-specs">opacity: 0.03 &middot; blur: 8px</div>
+        </div>
+      
+        <div class="glass-demo-card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:1.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.2);position:relative;overflow:hidden;">
+          <div class="glass-light-bar"></div>
+          <div class="glass-label">NIVEL 2</div>
+          <div class="glass-name">Card</div>
+          <div class="glass-specs">opacity: 0.05 &middot; blur: 12px</div>
+        </div>
+      
+        <div class="glass-demo-card" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:16px;padding:1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.3);position:relative;overflow:hidden;">
+          <div class="glass-light-bar"></div>
+          <div class="glass-label">NIVEL 3</div>
+          <div class="glass-name">Modal</div>
+          <div class="glass-specs">opacity: 0.07 &middot; blur: 16px</div>
+        </div>
+      
+        <div class="glass-demo-card" style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:16px;padding:1.5rem;box-shadow:0 12px 48px rgba(0,0,0,0.35);position:relative;overflow:hidden;">
+          <div class="glass-light-bar"></div>
+          <div class="glass-label">NIVEL 4</div>
+          <div class="glass-name">Popover</div>
+          <div class="glass-specs">opacity: 0.10 &middot; blur: 20px</div>
+        </div>
+      
+      <div class="glass-demo-card" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;">
+        <div class="glass-light-bar-gold"></div>
+        <div class="glass-label" style="color:var(--gold)">GOLD GLASS</div>
+        <div class="glass-name">Premium</div>
+        <div class="glass-specs">CTAs, destaques, conversao</div>
+      </div>
+    </div>
+    <div class="glass-effects-demo">
+      <h4 class="color-group-label">Efeitos de Luz</h4>
+      <div class="glass-effects-grid">
+        <div class="glass-effect-card" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;position:relative;overflow:hidden;">
+          <div class="glass-top-glow"></div>
+          <span class="glass-effect-label">Top Glow</span>
+          <span class="glass-effect-desc">Brilho gold sutil no topo de cards</span>
+        </div>
+        <div class="glass-effect-card glow-gold" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);border-radius:16px;padding:2rem;">
+          <span class="glass-effect-label" style="color:var(--gold)">Glow Effect</span>
+          <span class="glass-effect-desc">Para elementos interactivos</span>
+        </div>
+        <div class="glass-effect-card pulse-gold-card" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);border-radius:16px;padding:2rem;">
+          <span class="glass-effect-label" style="color:var(--gold)">Pulse Gold</span>
+          <span class="glass-effect-desc">Para CTAs criticos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+      </section>
+    
+      <section id="sec-14" class="content-section" data-block="identidade-visual">
+        <div class="section-tag">14 // COMPONENTES</div>
+        <h2 class="section-title">COMPONENTES</h2>
+        <div class="section-body">
+    <div class="component-section">
+      <h4 class="comp-category">Botoes</h4>
+      <div class="comp-row">
+        <div class="comp-item">
+          <span class="comp-label">Primario (CTA)</span>
+          <button class="btn-demo-primary">Reserva o Teu Exemplar</button>
+        </div>
+        <div class="comp-item">
+          <span class="comp-label">Primario Hover</span>
+          <button class="btn-demo-primary btn-hover">Garante o Teu Ano</button>
+        </div>
+        <div class="comp-item">
+          <span class="comp-label">Secundario (Ghost)</span>
+          <button class="btn-demo-ghost">Saber Mais</button>
+        </div>
+        <div class="comp-item">
+          <span class="comp-label">Ghost Hover</span>
+          <button class="btn-demo-ghost btn-ghost-hover">Conhecer os Pilares</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-section">
+      <h4 class="comp-category">Input / Lead Capture</h4>
+      <div class="comp-row">
+        <div class="comp-item" style="flex:1;max-width:400px">
+          <span class="comp-label">Email Input</span>
+          <input class="input-demo" placeholder="O teu email" type="email" readonly>
+        </div>
+        <div class="comp-item" style="flex:1;max-width:400px">
+          <span class="comp-label">Email Input :focus</span>
+          <input class="input-demo input-focus" placeholder="O teu email" type="email" readonly>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-section">
+      <h4 class="comp-category">Badges</h4>
+      <div class="comp-row">
+        <div class="comp-item">
+          <span class="comp-label">Badge de Pilar</span>
+          <span class="badge-demo"><i data-lucide="compass" style="width:14px;height:14px"></i> PILAR I</span>
+        </div>
+        <div class="comp-item">
+          <span class="comp-label">Badge Gold</span>
+          <span class="badge-demo gold">PROPOSITO</span>
+        </div>
+        <div class="comp-item">
+          <span class="comp-label">Badge Neutral</span>
+          <span class="badge-demo neutral">366 DIAS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-section">
+      <h4 class="comp-category">Card de Inspiração Diária</h4>
+      <div class="comp-row">
+        <div class="card-inspiration-demo">
+          <div class="card-insp-light"></div>
+          <div class="card-insp-day">DIA 047 &middot; PILAR III</div>
+          <div class="card-insp-quote">"A diferenca entre quem constroi e quem sonha e uma unica coisa: o dia de hoje."</div>
+          <span class="badge-demo gold">PROPOSITO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-section">
+      <h4 class="comp-category">Card de Testemunho</h4>
+      <div class="comp-row">
+        <div class="card-testimonial-demo">
+          <div class="testimonial-avatar">AM</div>
+          <div class="testimonial-body">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <div class="testimonial-text">O Manuel mudou completamente a forma como me posiciono. De 2k para 15k mensais em 3 meses.</div>
+            <div class="testimonial-author">Ana Silva &mdash; Mentora de Negocios</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-section">
+      <h4 class="comp-category">Countdown</h4>
+      <div class="comp-row" style="justify-content:center">
+        <div class="countdown-demo">
+          <div class="countdown-unit"><span class="countdown-num">68</span><span class="countdown-label">DIAS</span></div>
+          <div class="countdown-unit"><span class="countdown-num">04</span><span class="countdown-label">HORAS</span></div>
+          <div class="countdown-unit"><span class="countdown-num">32</span><span class="countdown-label">MIN</span></div>
+          <div class="countdown-unit"><span class="countdown-num">17</span><span class="countdown-label">SEG</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-section">
+      <h4 class="comp-category">Navbar</h4>
+      <div class="comp-row">
+        <div class="navbar-demo">
+          <span class="navbar-logo">Manuel Manero</span>
+          <div class="navbar-links">
+            <span>Livro</span>
+            <span>Pilares</span>
+            <span>Feira</span>
+            <button class="btn-demo-primary" style="padding:0.5rem 1rem;font-size:0.8rem">Reservar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </section>
+    
+      <section id="sec-15" class="content-section" data-block="identidade-visual">
+        <div class="section-tag">15 // ÍCONES & ILUSTRAÇÕES</div>
+        <h2 class="section-title">ÍCONES & ILUSTRAÇÕES</h2>
+        <div class="section-body">
+    <div class="icon-section">
+      <h4 class="color-group-label">Icones dos 11 Pilares</h4>
+      <div class="icon-grid">
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="compass"></i></div>
+            <span class="icon-pilar-num">I</span>
+            <span class="icon-name">Pilar I</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="heart"></i></div>
+            <span class="icon-pilar-num">II</span>
+            <span class="icon-name">Pilar II</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="target"></i></div>
+            <span class="icon-pilar-num">III</span>
+            <span class="icon-name">Pilar III</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="brain"></i></div>
+            <span class="icon-pilar-num">IV</span>
+            <span class="icon-name">Pilar IV</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="scale"></i></div>
+            <span class="icon-pilar-num">V</span>
+            <span class="icon-name">Pilar V</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="rocket"></i></div>
+            <span class="icon-pilar-num">VI</span>
+            <span class="icon-name">Pilar VI</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="shield"></i></div>
+            <span class="icon-pilar-num">VII</span>
+            <span class="icon-name">Pilar VII</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="star"></i></div>
+            <span class="icon-pilar-num">VIII</span>
+            <span class="icon-name">Pilar VIII</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="book-open"></i></div>
+            <span class="icon-pilar-num">IX</span>
+            <span class="icon-name">Pilar IX</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="users"></i></div>
+            <span class="icon-pilar-num">X</span>
+            <span class="icon-name">Pilar X</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle"><i data-lucide="crown"></i></div>
+            <span class="icon-pilar-num">XI</span>
+            <span class="icon-name">Pilar XI</span>
+          </div>
+        
+      </div>
+    </div>
+    <div class="icon-section">
+      <h4 class="color-group-label">Icones Funcionais</h4>
+      <div class="icon-grid">
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="play-circle"></i></div>
+            <span class="icon-name">Reproduzir Audio</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="qr-code"></i></div>
+            <span class="icon-name">QR Code</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="share-2"></i></div>
+            <span class="icon-name">Partilhar</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="bookmark"></i></div>
+            <span class="icon-name">Guardar</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="flame"></i></div>
+            <span class="icon-name">Streak / Dias</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="award"></i></div>
+            <span class="icon-name">Badge</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="message-circle"></i></div>
+            <span class="icon-name">Comunidade</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="bell"></i></div>
+            <span class="icon-name">Notificacao</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="calendar"></i></div>
+            <span class="icon-name">Calendario</span>
+          </div>
+        
+          <div class="icon-item">
+            <div class="icon-circle func"><i data-lucide="trending-up"></i></div>
+            <span class="icon-name">Progresso</span>
+          </div>
+        
+      </div>
+    </div>
+    <div class="icon-specs glass-card-sm" style="margin-top:2rem;padding:1.5rem">
+      <h4 class="color-group-label" style="margin-bottom:1rem">Especificacoes</h4>
+      <div class="specs-grid">
+        <div><span class="spec-label">Estilo</span><span class="spec-value">Outline, stroke 1.5px</span></div>
+        <div><span class="spec-label">Cor padrao</span><span class="spec-value" style="color:var(--ivory)">Ivory #F5F0E8</span></div>
+        <div><span class="spec-label">Cor destaque</span><span class="spec-value" style="color:var(--gold)">Gold #C9A84C</span></div>
+        <div><span class="spec-label">Tamanho base</span><span class="spec-value">24x24px</span></div>
+        <div><span class="spec-label">Biblioteca</span><span class="spec-value">Lucide Icons (open source)</span></div>
+      </div>
+    </div>
+  </div>
+      </section>
+    <div id="block-showcase" class="block-anchor"></div>
+      <section id="sec-16" class="content-section" data-block="showcase">
+        <div class="section-tag">16 // MOCKUPS</div>
+        <h2 class="section-title">MOCKUPS</h2>
+        <div class="section-body">
+    <div class="mockup-grid">
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, var(--surface), #1a1a2e)">
+            <span class="mockup-num">01</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Landing Page Hero (Desktop)</span>
+            <span class="mockup-size">1920x1080</span>
+            <span class="mockup-priority" style="color:var(--gold)">P0</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, #12121A, #0A0A0F)">
+            <span class="mockup-num">02</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Landing Page Hero (Mobile)</span>
+            <span class="mockup-size">375x812</span>
+            <span class="mockup-priority" style="color:var(--gold)">P0</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, var(--surface), rgba(201,168,76,0.05))">
+            <span class="mockup-num">03</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Instagram Post</span>
+            <span class="mockup-size">1080x1080</span>
+            <span class="mockup-priority" style="color:var(--gold)">P0</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(180deg, var(--surface), rgba(201,168,76,0.03))">
+            <span class="mockup-num">04</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Instagram Story</span>
+            <span class="mockup-size">1080x1920</span>
+            <span class="mockup-priority" style="color:var(--gold)">P0</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, #12121A, #1a1a2e)">
+            <span class="mockup-num">05</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Instagram Carrossel</span>
+            <span class="mockup-size">1080x1080 x5</span>
+            <span class="mockup-priority" style="color:var(--smoke)">P1</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(180deg, #1A1A24, #12121A)">
+            <span class="mockup-num">06</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Email HTML</span>
+            <span class="mockup-size">600px width</span>
+            <span class="mockup-priority" style="color:var(--gold)">P0</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, #FAF8F5, #F5F0E8)">
+            <span class="mockup-num">07</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Press Kit (A4)</span>
+            <span class="mockup-size">210x297mm</span>
+            <span class="mockup-priority" style="color:var(--smoke)">P1</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, var(--surface), rgba(201,168,76,0.08))">
+            <span class="mockup-num">08</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Stand Feira do Livro</span>
+            <span class="mockup-size">Planta + elevacoes</span>
+            <span class="mockup-priority" style="color:var(--smoke)">P1</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, #0A0A0F, rgba(201,168,76,0.1))">
+            <span class="mockup-num">09</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Cartao de Visita</span>
+            <span class="mockup-size">85x55mm</span>
+            <span class="mockup-priority" style="color:rgba(107,107,123,0.6)">P2</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(180deg, #0A0A0F, rgba(201,168,76,0.05))">
+            <span class="mockup-num">10</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Bookmark Promocional</span>
+            <span class="mockup-size">50x150mm</span>
+            <span class="mockup-priority" style="color:rgba(107,107,123,0.6)">P2</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, var(--surface), #1a1a2e)">
+            <span class="mockup-num">11</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Facebook Cover</span>
+            <span class="mockup-size">820x312</span>
+            <span class="mockup-priority" style="color:var(--smoke)">P1</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, #12121A, var(--surface))">
+            <span class="mockup-num">12</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">LinkedIn Banner</span>
+            <span class="mockup-size">1584x396</span>
+            <span class="mockup-priority" style="color:var(--smoke)">P1</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, var(--surface), rgba(201,168,76,0.05))">
+            <span class="mockup-num">13</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">YouTube Thumbnail</span>
+            <span class="mockup-size">1280x720</span>
+            <span class="mockup-priority" style="color:var(--smoke)">P1</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, #1a1a2e, #12121A)">
+            <span class="mockup-num">14</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">WhatsApp Stickers</span>
+            <span class="mockup-size">512x512</span>
+            <span class="mockup-priority" style="color:rgba(107,107,123,0.6)">P2</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(135deg, rgba(201,168,76,0.08), var(--surface))">
+            <span class="mockup-num">15</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Mockup 3D do Livro</span>
+            <span class="mockup-size">2000x2000</span>
+            <span class="mockup-priority" style="color:var(--gold)">P0</span>
+          </div>
+        </div>
+      
+        <div class="mockup-card">
+          <div class="mockup-preview" style="background:linear-gradient(180deg, #0A0A0F, #12121A)">
+            <span class="mockup-num">16</span>
+          </div>
+          <div class="mockup-info">
+            <span class="mockup-name">Capa Ebook (Kindle)</span>
+            <span class="mockup-size">1600x2560</span>
+            <span class="mockup-priority" style="color:rgba(107,107,123,0.6)">P2</span>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+      </section>
+    
+    </main>
+  </div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // Scroll-spy for sidebar
+    (function() {
+      const sidebarItems = document.querySelectorAll('.sidebar-item');
+      const sectionEls = document.querySelectorAll('.content-section');
+      const navTabEls = document.querySelectorAll('.nav-tab');
+
+      function updateActive() {
+        let current = '';
+        let currentBlock = '';
+        for (const sec of sectionEls) {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 120) {
+            current = sec.id;
+            currentBlock = sec.dataset.block;
+          }
+        }
+        sidebarItems.forEach(item => {
+          item.classList.toggle('active', item.dataset.target === current);
+        });
+        navTabEls.forEach(tab => {
+          tab.classList.toggle('active', tab.dataset.block === currentBlock);
+        });
+      }
+
+      window.addEventListener('scroll', updateActive, { passive:true });
+      updateActive();
+    })();
+  </script>
+
+</body>
+</html>

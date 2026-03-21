@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang='pt'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Proposta de Serviços — O Livro do Ano Milionário</title>
+<link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap' rel='stylesheet'>
+<style>
+:root{--bg:#0A0A0F;--surface:#12121A;--gold:#C9A84C;--amber:#E8B94A;--ivory:#F5F0E8;--smoke:#6B6B7B;--glass-bg:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ivory);font-family:'Inter',sans-serif;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:3rem 2.5rem 5rem}
+.cover{text-align:center;padding:4rem 0 3rem;border-bottom:1px solid var(--glass-border);margin-bottom:3rem}
+.cover .tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);padding:.25rem .75rem;border-radius:14px;display:inline-block;margin-bottom:1.5rem}
+.cover h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--gold);letter-spacing:-.02em;margin-bottom:.5rem}
+.cover .subtitle{font-size:1.1rem;color:var(--ivory);font-weight:500;margin-bottom:.3rem}
+.cover .client{font-size:1rem;color:var(--smoke)}
+.cover .meta{margin-top:1.5rem;font-size:.78rem;color:var(--smoke);line-height:2}
+h1{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold);margin:3rem 0 .75rem;letter-spacing:-.02em}
+h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--ivory);margin:2rem 0 .6rem;padding-top:1.5rem;border-top:1px solid var(--glass-border)}
+h3{font-size:1.1rem;font-weight:700;color:var(--ivory);margin:1.5rem 0 .5rem}
+h4{font-size:.95rem;font-weight:600;color:var(--amber);margin:1.2rem 0 .4rem}
+p{margin:.6rem 0;color:rgba(245,240,232,.88);max-width:720px}
+strong{color:var(--ivory)}
+em{color:var(--amber)}
+blockquote{border-left:3px solid var(--gold);background:rgba(201,168,76,.05);padding:.8rem 1.2rem;margin:1rem 0;border-radius:0 10px 10px 0;font-family:'Playfair Display',serif;font-size:1rem;line-height:1.5}
+ul,ol{margin:.6rem 0;padding-left:1.5rem}
+li{margin:.3rem 0;color:rgba(245,240,232,.82)}
+li::marker{color:var(--gold)}
+a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.3)}
+hr{border:none;border-top:1px solid var(--glass-border);margin:2rem 0}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.83rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:10px;overflow:hidden}
+thead th{background:rgba(201,168,76,.1);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.03em;text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--glass-border)}
+tbody td{padding:.5rem .75rem;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(245,240,232,.82)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(255,255,255,.02)}
+code{font-family:'JetBrains Mono',monospace;font-size:.82em;background:rgba(255,255,255,.06);padding:.12rem .4rem;border-radius:4px;color:var(--amber)}
+pre{background:var(--surface);border:1px solid var(--glass-border);border-radius:10px;padding:1.25rem;overflow-x:auto;margin:1rem 0}
+pre code{background:transparent;padding:0;font-size:.8rem;color:var(--ivory);line-height:1.6}
+.footer{text-align:center;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--glass-border);color:var(--smoke);font-size:.78rem}
+.footer .quote{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);font-style:italic;margin-bottom:1rem;display:block}
+@media print{body{background:#fff;color:#1a1a1a}h1,h2{color:#1a1a1a}thead th{background:#f5f0e8;color:#1a1a1a;border:1px solid #ccc}tbody td{border:1px solid #ddd;color:#333}blockquote{border-left:3px solid #C9A84C;background:#faf8f5}pre{background:#f5f5f5;border:1px solid #ddd}}
+@media(max-width:768px){.wrap{padding:1.5rem 1rem}h1{font-size:1.4rem}.cover h1{font-size:1.8rem}}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2);border-radius:3px}
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='cover'>
+  <span class='tag'>CONFIDENCIAL — PROP-OLAM-2026-001</span>
+  <h1>Proposta de Serviços</h1>
+  <div class='subtitle'>Lançamento Editorial</div>
+  <div class='client'>"O Livro do Ano Milionário" — Manuel Manero</div>
+  <div class='meta'>Preparada por: Equipa AIOX — Marketing &amp; Tecnologia<br>Data: 21/03/2026 · Validade: 15 dias</div>
+</div>
+<h1>PROPOSTA DE SERVIÇOS</h1>
+<h2>Lançamento Editorial &quot;O Livro do Ano Milionário&quot; — Manuel Manero</h2>
+<hr>
+<p><strong>Preparada por:</strong> Equipa AIOX — Marketing &amp; Tecnologia
+<strong>Data:</strong> 21/03/2026
+<strong>Validade:</strong> 15 dias (até 05/04/2026)
+<strong>Referência interna:</strong> PROP-OLAM-2026-001
+<strong>Classificação:</strong> Confidencial</p>
+<hr>
+<h2>1. SUMÁRIO EXECUTIVO</h2>
+<p>Manuel,</p>
+<p>Conhecemos o teu ecossistema. Sabemos que tens 4 programas activos, uma base de emails aquecida desde Outubro de 2023, um site premium em produção, 3 livros publicados e uma comunidade que te respeita. Não estamos a falar com alguém que precisa de ser convencido sobre o poder do marketing digital — estamos a falar com alguém que precisa de uma equipa de execução à altura da sua visão.</p>
+<p>O que temos diante de nós é uma oportunidade rara:</p>
+<ul>
+<li>O teu 4.º livro chega num momento de maturidade da tua marca pessoal</li>
+<li>A Feira do Livro de Lisboa (27 de Maio a 14 de Junho) coloca-te diante de mais de 1 milhão de visitantes</li>
+<li>O formato de 366 inspirações diárias é naturalmente modular — cada dia é uma unidade de conteúdo que pode ser um post, um QR code, um áudio, uma pergunta a um chatbot. Nenhum livro português explorou esta modularidade digital</li>
+</ul>
+<p>A nossa proposta é simples: transformar o lançamento do &quot;O Livro do Ano Milionário&quot; no primeiro lançamento editorial português com ecossistema digital completo — do presencial ao digital, sem costuras.</p>
+<p>O resultado: posicionar o livro como referência no mercado de desenvolvimento pessoal em Portugal, alimentar o teu ecossistema com leads qualificados e demonstrar, na prática, o que significa &quot;vida milionária&quot;.</p>
+<hr>
+<h2>2. ANÁLISE DA SITUAÇÃO</h2>
+<h3>2.1 Os Teus Activos (o que já tens)</h3>
+<p>Não começamos do zero. O teu ecossistema já é robusto:</p>
+<table>
+<thead>
+<tr>
+<th>Activo</th>
+<th>Estado</th>
+<th>Valor Estratégico</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Site premium Vercel (8 páginas)</td>
+<td>Live</td>
+<td>SEO, schema.org, Open Graph — pronto para receber página do livro</td>
+</tr>
+<tr>
+<td>AI Quiz diagnóstico (Gemini)</td>
+<td>Funcional</td>
+<td>Ferramenta de qualificação de leads já testada</td>
+</tr>
+<tr>
+<td>AI Chat integrado</td>
+<td>Funcional</td>
+<td>Infraestrutura de IA já disponível</td>
+</tr>
+<tr>
+<td>Base de emails diários</td>
+<td>Activa desde Out/2023</td>
+<td>Audiência aquecida — não é lista fria</td>
+</tr>
+<tr>
+<td>4 programas (PRIME, MASTERY, Comunidade, Mentoria)</td>
+<td>Activos</td>
+<td>Funil de upsell já existe — o livro é a nova porta de entrada</td>
+</tr>
+<tr>
+<td>3 livros publicados</td>
+<td>No mercado</td>
+<td>Prova social e catálogo para bundle</td>
+</tr>
+<tr>
+<td>Redes sociais (5 plataformas)</td>
+<td>Activas</td>
+<td>Canais de distribuição prontos</td>
+</tr>
+<tr>
+<td>4 testemunhos no site</td>
+<td>Publicados</td>
+<td>Social proof já validado</td>
+</tr>
+<tr>
+<td>Design system (glassmorphism, brand colors)</td>
+<td>Implementado</td>
+<td>Identidade visual consistente</td>
+</tr>
+</tbody></table>
+<h3>2.2 O Que Falta</h3>
+<table>
+<thead>
+<tr>
+<th>Lacuna</th>
+<th>Impacto se não for resolvida</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landing page dedicada ao livro</td>
+<td>O livro não tem presença digital própria — depende do site genérico</td>
+</tr>
+<tr>
+<td>Sistema de pré-venda online</td>
+<td>Perda de vendas antes da Feira. O método MBWay/transferência não escala</td>
+</tr>
+<tr>
+<td>Funil automatizado livro → programa</td>
+<td>Cada venda de livro é um dead-end — não alimenta o ecossistema</td>
+</tr>
+<tr>
+<td>Presença digital do livro (SEO, schema Book)</td>
+<td>Livro invisível para Google. Sem autoridade digital</td>
+</tr>
+<tr>
+<td>Sequência de email dedicada ao lançamento</td>
+<td>Base aquecida mas sem campanha estruturada para o livro</td>
+</tr>
+<tr>
+<td>Material para Feira (QR, press kit)</td>
+<td>Presença na Feira sem ponte para o digital</td>
+</tr>
+</tbody></table>
+<h3>2.3 A Oportunidade</h3>
+<p><strong>Dados de mercado</strong></p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Valor</th>
+<th>Fonte</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Visitantes Feira do Livro Lisboa 2025</td>
+<td>+1.000.000</td>
+<td>APEL</td>
+</tr>
+<tr>
+<td>Crescimento QR codes em livros (2021-2025)</td>
+<td>+323%</td>
+<td>Book QR Code Dynamic</td>
+</tr>
+<tr>
+<td>Mercado global IA companions (2026)</td>
+<td>49,52 mil milhões USD</td>
+<td>MIT Technology Review</td>
+</tr>
+<tr>
+<td>Poupança média autores com IA marketing</td>
+<td>+2.000 USD/livro</td>
+<td>ManuscriptReport</td>
+</tr>
+<tr>
+<td>Melhoria descobribilidade com IA</td>
+<td>+40-60%</td>
+<td>ManuscriptReport</td>
+</tr>
+</tbody></table>
+<p><strong>Porque este livro é diferente</strong></p>
+<p>O formato de 366 inspirações diárias cria algo que nenhum outro livro português oferece: modularidade nativa. Cada dia é uma unidade autónoma que pode ser:</p>
+<ul>
+<li>1 post de Instagram</li>
+<li>1 QR code com áudio do Manuel</li>
+<li>1 pergunta ao chatbot IA</li>
+<li>1 email na sequência pós-compra</li>
+<li>1 notificação na app companion</li>
+</ul>
+<p>Este livro não é um produto — é uma plataforma. E nós vamos construí-la.</p>
+<hr>
+<h2>3. ESTRATÉGIA PROPOSTA</h2>
+<h3>3.1 O Conceito: &quot;O Livro Vivo&quot;</h3>
+<p>O primeiro livro português com ecossistema digital completo.</p>
+<blockquote>
+<p>Não lançamos um livro. Lançamos um sistema vivo de 366 experiências que começa no físico e se estende ao digital — do stand da Feira ao ecrã do telemóvel.</p>
+</blockquote>
+<h3>3.2 As 5 Fases de Execução</h3>
+<pre><code>FASE 1          FASE 2          FASE 3           FASE 4          FASE 5
+Discovery       Produção        Pré-lançamento   Feira + Lanç.   Pós-lançamento
+Mar 2026        Mar-Abr 2026    Abr-Mai 2026     Mai-Jun 2026    Jun-Jul 2026
+[CONCLUÍDA]     [PRÓXIMO]       [PLANEADA]       [PLANEADA]      [PLANEADA]
+    |               |               |                |               |
+    v               v               v                v               v
+ Pesquisa       Landing page    Campanha email   Execução Feira  Funil auto
+ Brandbook      Pré-venda       Ads (Meta)       Autógrafos      Chatbot IA
+ Briefing       Email seq.      Press kit        Conteúdo live   Upsell
+ Mapa serviços  Calendário      Embaixadores     QR captura      Relatório
+</code></pre>
+<h3>3.3 Timeline Visual</h3>
+<table>
+<thead>
+<tr>
+<th>Período</th>
+<th>Fase</th>
+<th>Foco</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mar 2026</td>
+<td>1. Discovery</td>
+<td>Pesquisa, brandbook, briefing, proposta</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>Mar-Abr 2026</td>
+<td>2. Produção</td>
+<td>Landing page, pré-venda, emails, assets</td>
+<td>PRÓXIMO</td>
+</tr>
+<tr>
+<td>Abr-Mai 2026</td>
+<td>3. Pré-lançamento</td>
+<td>Campanha 30 dias, ads, press, embaixadores</td>
+<td>PLANEADO</td>
+</tr>
+<tr>
+<td>27/Mai-14/Jun</td>
+<td>4. Feira + Lançamento</td>
+<td>Stand, autógrafos, conteúdo ao vivo, follow-up</td>
+<td>PLANEADO</td>
+</tr>
+<tr>
+<td>Jun-Jul 2026</td>
+<td>5. Pós-lançamento</td>
+<td>Funil automatizado, chatbot, app, relatório</td>
+<td>PLANEADO</td>
+</tr>
+</tbody></table>
+<p><strong>Marco crítico:</strong> 67 dias até à abertura da Feira (27/Mai/2026).</p>
+<hr>
+<h2>4. PACOTES DE SERVIÇO</h2>
+<h3>4.1 Tabela Comparativa</h3>
+<table>
+<thead>
+<tr>
+<th>Entregável</th>
+<th>Fundação</th>
+<th>Amplificação</th>
+<th>Inédito</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td><strong>RECOMENDADO</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Landing page dedicada (copy + design + dev)</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Sistema de pré-venda (Stripe/Hotmart)</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Sequência de email (5 emails)</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Press kit digital</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>QR Code inteligente para Feira</td>
+<td>Sim</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Calendário de 60 dias de conteúdo (4 redes)</td>
+<td>—</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Ad creatives (10 variantes Meta Ads)</td>
+<td>—</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Página integrada no site Vercel existente</td>
+<td>—</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Funil completo (livro → diagnóstico IA → programa)</td>
+<td>—</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Playbook da Feira do Livro (checklist completo)</td>
+<td>—</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Chatbot IA &quot;Coach Milionário&quot; (11 pilares)</td>
+<td>—</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>App companion &quot;365 Dias&quot; (PWA)</td>
+<td>—</td>
+<td>—</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Experiência AR na capa do livro</td>
+<td>—</td>
+<td>—</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Quiz IA &quot;Qual é o teu pilar?&quot;</td>
+<td>—</td>
+<td>—</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Bundle &quot;Colecção Milionária&quot; (4 livros + extras)</td>
+<td>—</td>
+<td>—</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Dashboard de lançamento (métricas tempo real)</td>
+<td>—</td>
+<td>—</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Relatório de impacto pós-Feira (ROI por canal)</td>
+<td>—</td>
+<td>—</td>
+<td>Sim</td>
+</tr>
+</tbody></table>
+<h3>4.2 NÍVEL 1 — Fundação Digital</h3>
+<p><strong>Para quem:</strong> Quer presença digital profissional para o livro e um sistema funcional de vendas online.</p>
+<p><strong>O que recebes:</strong></p>
+<p><strong>Landing Page do Livro</strong> — Página dedicada com copy de conversão, mockup 3D do livro, countdown para a Feira, social proof, CTAs optimizados. Responsive, rápida, SEO-ready. Alojada em domínio próprio ou subdomínio do site Vercel.</p>
+<p><strong>Sistema de Pré-venda Online</strong> — Formulário de reserva integrado com processamento de pagamento (Stripe ou Hotmart). O leitor reserva e paga online — sem MBWay manual, sem transferência, sem atrito. Confirmação automática por email.</p>
+<p><strong>Sequência de Email (5 emails)</strong> — Aquecimento (apresentação do livro) → Revelação (os 11 pilares) → Oferta (pré-venda com bónus) → Urgência (countdown para Feira) → Última chamada (48h antes). Integrada com a tua plataforma de email existente.</p>
+<p><strong>Press Kit Digital</strong> — Bio actualizada, fotos profissionais (versões horizontal e vertical), sinopse editorial, 10 citações do livro, capa high-res, dados do autor (15+ anos, 10.000+ impactados). Pronto para media e parceiros.</p>
+<p><strong>QR Code Inteligente para Feira</strong> — QR code com link directo para landing page com oferta especial presencial. Tracking de scans. Material impresso para o stand (formato poster + formato mesa).</p>
+<p><strong>Prazo de entrega:</strong> 3 semanas após kickoff</p>
+<h3>4.3 NÍVEL 2 — Amplificação (RECOMENDADO)</h3>
+<p><strong>Para quem:</strong> Quer um lançamento completo, com campanha multi-canal, funil automatizado e presença digital ao nível dos melhores lançamentos editoriais em Portugal.</p>
+<p><strong>Tudo do Nível 1, mais:</strong></p>
+<p><strong>Calendário de 60 Dias de Conteúdo</strong> — Posts diários para Instagram, LinkedIn, Facebook e YouTube. Formatos: citações do livro, bastidores, countdown, reels, carrossel dos 11 pilares, stories interactivos. Calendário editorial completo com copy, hashtags e horários optimizados. De 27/Abril a 27/Junho — pré-lançamento + Feira + pós-Feira.</p>
+<p><strong>Ad Creatives (10 Variantes para Meta Ads)</strong> — Criativos para Instagram e Facebook. Público frio (prospecção) + retargeting (quem visitou a landing). 5 ângulos diferentes (inspiração, pilares, autor, Feira, urgência). Copy + visual + segmentação sugerida. Budget recomendado incluído.</p>
+<p><strong>Página Integrada no Site Vercel</strong> — Nova secção &quot;Livros&quot; no site premium já existente (manuel-manero.vercel.app). Página dedicada ao &quot;O Livro do Ano Milionário&quot; com schema.org Book, SEO optimizado, integração com o design system existente (glassmorphism, brand colors).</p>
+<p><strong>Funil Completo (Livro → Diagnóstico IA → Programa)</strong> — O leitor compra o livro → recebe sequência pós-compra → é convidado para o Quiz IA diagnóstico (já existente no site) → recebe recomendação personalizada de programa (PRIME, MASTERY, Comunidade ou Mentoria). Automatizado. Sem intervenção manual.</p>
+<p><strong>Playbook da Feira do Livro</strong> — Checklist completo por dia: montagem do stand, sessão de autógrafos, captação de leads no local, conteúdo ao vivo (stories, reels, lives), follow-up pós-visita. Inclui scripts de abordagem, materiais necessários e timeline hora a hora para os dias-chave.</p>
+<p><strong>Chatbot IA &quot;Coach Milionário&quot;</strong> — Assistente de inteligência artificial treinado nos 11 pilares do livro. O leitor faz uma pergunta, o chatbot responde com base nas inspirações do livro e nos pilares. Acessível via QR code no livro físico ou via landing page. Tecnologia: IA generativa com contexto dos 11 pilares.</p>
+<p><strong>Prazo de entrega:</strong> 5 semanas após kickoff (entregáveis faseados)</p>
+<h3>4.4 NÍVEL 3 — Inédito (&quot;O Livro Vivo&quot;)</h3>
+<p><strong>Para quem:</strong> Quer criar algo que nunca foi feito em Portugal. Um lançamento editorial que estabelece um novo padrão no mercado e posiciona Manuel Manero como pioneiro na intersecção livro + tecnologia.</p>
+<p><strong>Tudo dos Níveis 1 e 2, mais:</strong></p>
+<p><strong>App Companion &quot;365 Dias&quot; (PWA)</strong> — Aplicação web progressiva (funciona como app, sem App Store). Inspiração do dia com notificação matinal. Tracking de leitura (dias lidos, streaks). Progresso por pilar (11 badges). Partilha de progresso na comunidade. Funciona offline. Design alinhado com a identidade visual do livro.</p>
+<p><strong>Experiência AR na Capa</strong> — O leitor aponta o telemóvel para a capa do livro e vê um vídeo do Manuel Manero a falar directamente para ele. Realidade aumentada acessível via browser (sem app dedicada). Experiência memorável que transforma a capa numa porta de entrada digital.</p>
+<p><strong>Quiz IA &quot;Qual é o Teu Pilar?&quot;</strong> — Diagnóstico personalizado: 11 perguntas (uma por pilar), o algoritmo identifica o pilar mais urgente do leitor e recomenda a inspiração do dia + o programa mais adequado. Diferente do AI Quiz genérico já existente no site — este é específico para o livro e os 11 pilares.</p>
+<p><strong>Bundle &quot;Colecção Milionária&quot;</strong> — Pack premium: os 4 livros de Manuel Manero + acesso à app &quot;365 Dias&quot; + sessão de autógrafo exclusiva na Feira. Edição limitada, numerada. Preço premium. Posiciona o Manuel como autor com catálogo, não como autor de um livro.</p>
+<p><strong>Dashboard de Lançamento</strong> — Painel em tempo real com métricas-chave: pré-vendas, leads captados, QR scans, visitas à landing page, conversões de funil, engagement nas redes. Actualizado automaticamente. Acessível via browser.</p>
+<p><strong>Relatório de Impacto Pós-Feira</strong> — Documento completo com ROI por canal e acção: vendas na Feira, vendas online, leads captados, conversões para programas, engagement nas redes, performance dos ads, métricas do chatbot. Entregue 2 semanas após o fim da Feira.</p>
+<p><strong>Prazo de entrega:</strong> 8 semanas após kickoff (entregáveis faseados, com prioridade para Feira)</p>
+<h3>4.5 Investimento</h3>
+<p>O investimento para cada pacote será apresentado em reunião de kickoff, após definição do nível de serviço e alinhamento de expectativas.</p>
+<p>O nosso objectivo é construir uma proposta financeira que faça sentido para ambas as partes — baseada no valor entregue, não no custo.</p>
+<p><strong>Próximo passo:</strong> Agenda uma reunião connosco para discutirmos o pacote ideal e as condições.</p>
+<h3>Porque recomendamos o Nível 2</h3>
+<p>O Nível 1 resolve o problema imediato (presença digital + vendas), mas não alimenta o ecossistema. O Nível 3 é visionário, mas pode ser demasiado para um primeiro lançamento com este formato.</p>
+<p>O Nível 2 é o ponto óptimo: cria presença digital completa, campanha multi-canal, funil automatizado que alimenta os teus programas, chatbot IA que diferencia o livro de qualquer outro no mercado português, e um playbook que garante que a Feira do Livro não é apenas um evento — é uma máquina de captação.</p>
+<p>Os entregáveis do Nível 3 (app, AR, dashboard) podem ser adicionados numa segunda fase, após a Feira, com base nos resultados reais.</p>
+<hr>
+<h2>5. RECEITA PROJECTADA</h2>
+<h3>5.1 Cenário Conservador vs Optimista (Nível 2)</h3>
+<p>Os números abaixo são projecções baseadas em dados de mercado e benchmarks de lançamentos editoriais em Portugal. Não são garantias — são cenários para avaliar o potencial de receita que o lançamento pode gerar.</p>
+<p><strong>Vendas de livros</strong></p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Conservador</th>
+<th>Optimista</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vendas na Feira (19 dias)</td>
+<td>200 unidades</td>
+<td>500 unidades</td>
+</tr>
+<tr>
+<td>Vendas online (pré-venda + pós-Feira)</td>
+<td>100 unidades</td>
+<td>300 unidades</td>
+</tr>
+<tr>
+<td>Preço por unidade</td>
+<td>16,00 EUR</td>
+<td>16,00 EUR</td>
+</tr>
+<tr>
+<td><strong>Receita de livros</strong></td>
+<td><strong>4.800 EUR</strong></td>
+<td><strong>12.800 EUR</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Leads e conversões</strong></p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Conservador</th>
+<th>Optimista</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Leads captados (landing + Feira + QR)</td>
+<td>300</td>
+<td>800</td>
+</tr>
+<tr>
+<td>Taxa conversão para Masterclass 11 Pilares (197 EUR)</td>
+<td>3%</td>
+<td>6%</td>
+</tr>
+<tr>
+<td>Conversões Masterclass</td>
+<td>9</td>
+<td>48</td>
+</tr>
+<tr>
+<td><strong>Receita Masterclass</strong></td>
+<td><strong>1.773 EUR</strong></td>
+<td><strong>9.456 EUR</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Upsell para programas premium</strong></p>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Conservador</th>
+<th>Optimista</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Conversão Masterclass → Mentoria (1.997 EUR)</td>
+<td>5% (de 9)</td>
+<td>8% (de 48)</td>
+</tr>
+<tr>
+<td>Conversões Mentoria</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Receita Mentoria</strong></td>
+<td><strong>1.997 EUR</strong></td>
+<td><strong>7.988 EUR</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Resumo de receita projectada</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Conservador</th>
+<th>Optimista</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Receita total projectada</strong></td>
+<td><strong>8.570 EUR</strong></td>
+<td><strong>30.244 EUR</strong></td>
+</tr>
+</tbody></table>
+<p><strong>O que isto significa</strong></p>
+<p>No cenário conservador, o lançamento gera receita superior a 8.500 EUR apenas com vendas directas e conversões de primeiro nível — sem contar com o valor de longo prazo dos leads captados.</p>
+<p>No cenário optimista, a receita ultrapassa os 30.000 EUR — e ainda não contabilizamos o LTV (Lifetime Value) dos clientes que entram no ecossistema via o livro.</p>
+<p><strong>Valor não quantificado (mas real)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Activo</th>
+<th>Valor Estratégico</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base de leads qualificados</td>
+<td>Cada lead tem valor estimado de 15-50 EUR no funil</td>
+</tr>
+<tr>
+<td>Autoridade editorial</td>
+<td>4.º livro consolida posição de &quot;autor de referência&quot;</td>
+</tr>
+<tr>
+<td>Conteúdo reutilizável</td>
+<td>60 dias de conteúdo, 10 ads, emails — activos permanentes</td>
+</tr>
+<tr>
+<td>Chatbot IA</td>
+<td>Diferenciador de marca, disponível 24/7, escala infinita</td>
+</tr>
+<tr>
+<td>Dados de mercado</td>
+<td>Métricas reais sobre o teu público (comportamento, interesses, conversão)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. TIMELINE DETALHADA</h2>
+<h3>Marco a Marco: Março de 2026 a Julho de 2026</h3>
+<pre><code>MAR 2026          ABR 2026          MAI 2026           JUN 2026          JUL 2026
+|                 |                 |                   |                 |
+|-- Discovery ----|-- Produção -----|-- Pré-lançamento --|-- Feira --------|-- Pós -------|
+|   [FEITO]       |                 |                   |                 |              |
+|                 |                 |                   |                 |              |
+| Pesquisa        | Landing page    | Campanha email    | 27/Mai: ABERTURA| Funil auto   |
+| Brandbook       | Pré-venda       | Meta Ads live     | Autógrafos      | Chatbot live |
+| Briefing        | Email sequence  | Press kit envio   | Conteúdo live   | Upsell seq.  |
+| Proposta        | Assets visuais  | Embaixadores      | QR captura      | Relatório    |
+|                 | Chatbot v1      | Calendário social | Follow-up       |              |
+|                 | Página Vercel   |                   | 14/Jun: FECHO   |              |
+</code></pre>
+<h3>Detalhe por semana</h3>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Datas</th>
+<th>Entregáveis</th>
+<th>Milestone</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S0 (actual)</td>
+<td>21-28/Mar</td>
+<td>Proposta aprovada, kickoff</td>
+<td>DECISÃO</td>
+</tr>
+<tr>
+<td>S1</td>
+<td>28/Mar-04/Abr</td>
+<td>Landing page v1, sistema pré-venda</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>04-11/Abr</td>
+<td>Email sequence, press kit, QR code</td>
+<td>NÍVEL 1 COMPLETO</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>11-18/Abr</td>
+<td>Calendário social, ad creatives, página Vercel</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>18-25/Abr</td>
+<td>Chatbot v1, funil configurado, playbook</td>
+<td>NÍVEL 2 COMPLETO</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>25/Abr-02/Mai</td>
+<td>Campanha email inicia (30 dias para Feira)</td>
+<td>PRÉ-LANÇAMENTO</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>02-09/Mai</td>
+<td>Meta Ads live, press kit enviado à media</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S7</td>
+<td>09-16/Mai</td>
+<td>Embaixadores activados, conteúdo diário</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S8</td>
+<td>16-23/Mai</td>
+<td>Testes finais, últimos ajustes, sprint</td>
+<td>PRONTO</td>
+</tr>
+<tr>
+<td>S9</td>
+<td>23-27/Mai</td>
+<td>Preparação final, stand, materiais</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S10</td>
+<td>27/Mai</td>
+<td>ABERTURA DA FEIRA DO LIVRO</td>
+<td>LANÇAMENTO</td>
+</tr>
+<tr>
+<td>S11-S12</td>
+<td>27/Mai-14/Jun</td>
+<td>Feira: execução diária, conteúdo, follow-up</td>
+<td>FEIRA</td>
+</tr>
+<tr>
+<td>S13-S14</td>
+<td>14-28/Jun</td>
+<td>Funil automatizado, chatbot optimizado</td>
+<td>PÓS-LANÇAMENTO</td>
+</tr>
+<tr>
+<td>S15-S16</td>
+<td>28/Jun-12/Jul</td>
+<td>Relatório de impacto, plano de continuidade</td>
+<td>FECHO</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. A EQUIPA</h2>
+<h3>Equipa AIOX — Marketing &amp; Tecnologia</h3>
+<p>Somos uma equipa integrada de especialistas em marketing digital, branding, desenvolvimento e inteligência artificial. O nosso diferenciador: executamos do estratégico ao técnico numa única equipa, sem subcontratar, sem perda de contexto entre fases.</p>
+<p><strong>Capacidades</strong></p>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>Competência</th>
+<th>Aplicação neste Projecto</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Estratégia</td>
+<td>Análise de mercado, posicionamento, funis</td>
+<td>Pesquisa de tendências, brandbook, funil livro → programa</td>
+</tr>
+<tr>
+<td>Copywriting</td>
+<td>Copy de conversão, email sequences, ads</td>
+<td>Landing page, emails, ads, press kit, contracapa</td>
+</tr>
+<tr>
+<td>Design</td>
+<td>Identidade visual, mockups, assets</td>
+<td>Design system, assets sociais, material Feira</td>
+</tr>
+<tr>
+<td>Desenvolvimento</td>
+<td>Next.js, Vercel, PWA, chatbots IA</td>
+<td>Landing page, integração site, chatbot, app companion</td>
+</tr>
+<tr>
+<td>Publicidade</td>
+<td>Meta Ads, SEO, analytics</td>
+<td>Campanha 60 dias, 10 criativos, optimização</td>
+</tr>
+<tr>
+<td>IA Generativa</td>
+<td>Chatbots, quiz IA, AR</td>
+<td>Coach Milionário, Quiz dos Pilares, AR na capa</td>
+</tr>
+</tbody></table>
+<p><strong>Stack Tecnológico</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tecnologia</th>
+<th>Utilização</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Next.js 15 + React 18</td>
+<td>Landing page, página Vercel</td>
+</tr>
+<tr>
+<td>Vercel</td>
+<td>Alojamento, deploy</td>
+</tr>
+<tr>
+<td>TailwindCSS + Framer Motion</td>
+<td>Design system, animações</td>
+</tr>
+<tr>
+<td>Stripe / Hotmart</td>
+<td>Processamento de pagamentos</td>
+</tr>
+<tr>
+<td>ActiveCampaign</td>
+<td>Email marketing, automação</td>
+</tr>
+<tr>
+<td>Meta Ads (Instagram + Facebook)</td>
+<td>Publicidade paga</td>
+</tr>
+<tr>
+<td>IA Generativa (Gemini/OpenAI)</td>
+<td>Chatbot, quiz, AR</td>
+</tr>
+<tr>
+<td>PWA</td>
+<td>App companion (Nível 3)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. PROVA</h2>
+<h3>8.1 O Que Já Fizemos Para Ti</h3>
+<p>Não estamos a apresentar uma proposta teórica. Já trabalhámos contigo e já entregámos resultados concretos:</p>
+<table>
+<thead>
+<tr>
+<th>Entregável</th>
+<th>Estado</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Site premium Vercel</td>
+<td>Live</td>
+<td>8 páginas, design glassmorphism, SEO completo, schema.org</td>
+</tr>
+<tr>
+<td>AI Quiz diagnóstico</td>
+<td>Funcional</td>
+<td>Quiz inteligente com IA (Gemini) integrado no site</td>
+</tr>
+<tr>
+<td>AI Chat</td>
+<td>Funcional</td>
+<td>Chat de IA integrado no site</td>
+</tr>
+<tr>
+<td>Design system</td>
+<td>Implementado</td>
+<td>Glassmorphism, gold gradient, brand colors, tipografia</td>
+</tr>
+<tr>
+<td>SEO completo</td>
+<td>Implementado</td>
+<td>Meta tags, Open Graph, schema.org, sitemap</td>
+</tr>
+<tr>
+<td>4 testemunhos com programa</td>
+<td>Publicados</td>
+<td>Social proof no site</td>
+</tr>
+<tr>
+<td>Dados estruturados</td>
+<td>Implementados</td>
+<td>4 stats: 10k+ impactados, 5k+ comunidade, 15+ anos, 3 livros</td>
+</tr>
+</tbody></table>
+<h3>8.2 O Que Já Produzimos Para Este Projecto</h3>
+<p>Antes mesmo de apresentar esta proposta, já investimos trabalho real:</p>
+<table>
+<thead>
+<tr>
+<th>Activo</th>
+<th>Ficheiro</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pesquisa de mercado completa</td>
+<td>book-launch-trends-2026.md</td>
+<td>28 tendências, 9 inéditas em Portugal, fontes verificadas</td>
+</tr>
+<tr>
+<td>Brandbook estratégico</td>
+<td>BRANDBOOK-ESTRATEGICO.md</td>
+<td>16 secções: manifesto, posicionamento, BrandScript, truelines, identidade visual</td>
+</tr>
+<tr>
+<td>Auditoria visual da capa</td>
+<td>AUDITORIA-VISUAL-CAPA.md</td>
+<td>Análise profissional da capa existente</td>
+</tr>
+<tr>
+<td>Copy de lançamento</td>
+<td>COPY-LANCAMENTO.md</td>
+<td>10 headlines, 5 subheadlines, 2 contracapas, sinopse, bios</td>
+</tr>
+<tr>
+<td>Calendário de redes sociais</td>
+<td>SOCIAL-CALENDAR-60D.md</td>
+<td>60 dias de conteúdo para 4 plataformas</td>
+</tr>
+<tr>
+<td>Pesquisa dos 11 pilares</td>
+<td>11-pilares-research.md</td>
+<td>Investigação sobre os pilares do livro</td>
+</tr>
+<tr>
+<td>7 Truelines</td>
+<td>No brandbook</td>
+<td>Frases-verdade que orientam toda a comunicação</td>
+</tr>
+</tbody></table>
+<p>Este trabalho já está feito. Não é um custo adicional — é a fundação sobre a qual todo o lançamento se vai construir.</p>
+<h3>8.3 Dados do Site Existente</h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Páginas</td>
+<td>8 (Home, Sobre, Programas, Comunidade, Escola, Livros, Testemunhos, Contactos)</td>
+</tr>
+<tr>
+<td>Ferramentas IA</td>
+<td>2 (AI Quiz + AI Chat)</td>
+</tr>
+<tr>
+<td>SEO</td>
+<td>Completo (meta, Open Graph, schema.org, sitemap)</td>
+</tr>
+<tr>
+<td>Design system</td>
+<td>Glassmorphism com gold gradient</td>
+</tr>
+<tr>
+<td>Testemunhos</td>
+<td>4 (com programa associado)</td>
+</tr>
+<tr>
+<td>Programas apresentados</td>
+<td>4 (PRIME, MASTERY, Comunidade, Mentoria)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. PRÓXIMOS PASSOS</h2>
+<p>O caminho daqui é simples e directo:</p>
+<table>
+<thead>
+<tr>
+<th>Passo</th>
+<th>Acção</th>
+<th>Prazo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Manuel escolhe o nível de serviço (ou propõe ajustes)</td>
+<td>Até 05/04/2026</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Reunião de kickoff (30 min, vídeo ou presencial)</td>
+<td>48h após decisão</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Início da execução</td>
+<td>48h após kickoff</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Primeiro entregável (landing page v1)</td>
+<td>7 dias após início</td>
+</tr>
+</tbody></table>
+<p><strong>Para avançar</strong></p>
+<ul>
+<li><strong>Email:</strong> Responder a este documento com o nível escolhido (ou dúvidas)</li>
+<li><strong>WhatsApp:</strong> 968 032 398</li>
+<li><strong>Reunião:</strong> Agendamos em 48h</li>
+</ul>
+<p>Validade desta proposta: 15 dias (até 05/04/2026).</p>
+<p>Após esta data, os prazos indicados podem precisar de ajuste face à proximidade da Feira (27/Mai).</p>
+<hr>
+<h2>10. TERMOS E CONDIÇÕES (RESUMO)</h2>
+<table>
+<thead>
+<tr>
+<th>Cláusula</th>
+<th>Condição</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pagamento</td>
+<td>Condições apresentadas na reunião de kickoff, adaptadas ao nível de serviço escolhido</td>
+</tr>
+<tr>
+<td>Alterações</td>
+<td>2 rondas de revisão incluídas por entregável. Rondas adicionais facturadas à parte</td>
+</tr>
+<tr>
+<td>Prazo</td>
+<td>Conforme timeline acordada. Atrasos causados por falta de input do cliente não afectam o prazo de entrega da equipa</td>
+</tr>
+<tr>
+<td>Propriedade intelectual</td>
+<td>Todo o conteúdo produzido (copy, design, código, assets) é propriedade de Manuel Manero após pagamento integral</td>
+</tr>
+<tr>
+<td>Confidencialidade</td>
+<td>Ambas as partes comprometem-se a não divulgar informação do projecto sem autorização mútua</td>
+</tr>
+<tr>
+<td>Cancelamento</td>
+<td>Qualquer parte pode cancelar com aviso de 7 dias. Trabalho já executado é facturado proporcionalmente</td>
+</tr>
+<tr>
+<td>Suporte pós-entrega</td>
+<td>30 dias de suporte técnico incluído após entrega final</td>
+</tr>
+</tbody></table>
+<h3>Aceitação</h3>
+<p>Para avançar com esta proposta, basta responder por email ou WhatsApp com:</p>
+<blockquote>
+<p>&quot;Quero avançar com o Nível [1/2/3]. Vamos agendar o kickoff.&quot;</p>
+</blockquote>
+<p>A partir desse momento, agendamos o kickoff e começamos a construir o lançamento editorial mais completo que o mercado português já viu.</p>
+<hr>
+<p><em>Proposta preparada pela Equipa AIOX — Marketing &amp; Tecnologia</em>
+<em>21/03/2026 | Confidencial</em></p>
+<hr>
+<blockquote>
+<p>&quot;O teu ano milionário não começa em Janeiro. Começa quando decides que começa.&quot; — Trueline TL-07, Brandbook Estratégico</p>
+</blockquote>
+
+<div class='footer'>
+  <span class='quote'>"O teu ano milionário não começa em Janeiro. Começa quando decides que começa."</span>
+  Proposta preparada pela Equipa AIOX — Marketing &amp; Tecnologia · 21/03/2026 · Confidencial
+</div>
+</div>
+</body>
+</html>
